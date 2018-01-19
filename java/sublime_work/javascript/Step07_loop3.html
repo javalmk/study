@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step07_loop3.html</title>
+</head>
+<body>
+<button id="one">print nums</button>
+<button id="two">print names</button>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<script>
+	var nums=[10, 20, 30, 40, 50, 60, 70];
+
+	// print nums 버튼을 눌렀을때 nums 배열에 저장된 숫자를 하나씩 순서대로 참조해서 콘솔창에 출력해 보세요.
+	document.querySelector("#one")
+	.addEventListener("click", function(){
+		for(var i=0; i<nums.length; i++){
+			console.log(nums[i]);
+		}
+	});
+
+	var names=["김구라","해골","원숭이","주뎅이"];
+	// print names 버튼을 눌렀을때 names 배열에 저장된 문자열을 하나씩 순서대로 참조해서 div 요소의 innerText 로 하나씩 넣어 보세요.
+	document.querySelector("#two")
+	.addEventListener("click", function(){
+		for(var i=0; i<names.length; i++){
+			//names 의 i번째 문자열을 읽어와서 
+			var tmp=names[i];
+			//i 번째 div 요소의 innerText 로 출력한다.
+			document.querySelectorAll("div")[i].innerText=tmp;
+		}
+	});
+</script>	
+</body>
+</html>

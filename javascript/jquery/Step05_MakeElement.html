@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step05_MakeElement.html</title>
+	<style>
+		.container{
+			width: 768px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+<button id="addBtn">이미지 추가</button>
+<button id="removeBtn">Clear</button>
+<div class="container">
+	
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	/*
+		이미지 추가 버튼을 눌렀을때 
+		img 요소를 만들어서 images/kim1.png 이미지를 로딩하게 한 다음 .container 에 추가 해 보세요 
+	*/
+	//$("#addBtn").on("click", function(){});
+	$("#addBtn").click(function(){
+		$("<img/>")
+		.attr("src","images/kim1.png")
+		.appendTo(".container");
+	});
+
+	$("#removeBtn").click(function(){
+		// .remove() 해서 문서 객체 제거 
+		$(".container img").remove();
+	});
+</script>	
+</body>
+</html>

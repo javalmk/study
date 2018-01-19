@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step04.html</title>
+	<style>
+		*{
+			box-sizing: border-box;
+		}
+		.row{
+			border: 1px solid red;
+		}
+		.col{
+			float: left;
+			border: 1px dotted green;
+			width: 25%;
+		}
+
+		/* float 된 자식요소를 부모요소가 감쌀수 있게하고 또한 clear 도 하기 위한 css */
+		.row:before, .row:after{
+			display: table;
+			content: " ";
+		}
+		.row:after{
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col">div1</div>
+		<div class="col">div2</div>
+		<div class="col">div3</div>
+		<div class="col">div4</div>
+	</div>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero quisquam sequi sed. Repudiandae tenetur facilis vero explicabo eum iusto accusamus, aut. Saepe sapiente non, doloribus qui excepturi quam laborum officia.</p>
+</div>	
+</body>
+</html>

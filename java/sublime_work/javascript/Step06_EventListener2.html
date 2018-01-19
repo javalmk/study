@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step06_EventListener2.html</title>
+	<style>
+		/* 여기는 css 영역 입니다. */
+		.box{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+			background-color: yellow;
+		}
+
+	</style>
+</head>
+<body>
+<div class="box" id="one">box1</div>
+<div class="box" id="two">box2</div>	
+<script>
+	//여기는 javascript 영역 입니다.
+	document.querySelector("#one")
+	.addEventListener("click", function(){
+		// 콘솔에서 this 확인!
+		console.log(this);
+		/*
+			this 는 위의 이벤트(click) 가 일어난 요소의 참조값을 가리키는 예약어 이다. 
+		*/
+
+		//이벤트가 일어난 요소의 innerText 조작 
+		this.innerText="clicked!";
+	});
+
+	document.querySelector("#two")
+	.addEventListener("mouseover", function(){
+		this.innerText="마우스를 올렸네?";
+	});
+
+	document.querySelector("#two")
+	.addEventListener("mouseout", function(){
+		this.innerText="마우스가 나갔네?";
+	});
+
+</script>
+</body>
+</html>

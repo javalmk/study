@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step12_Text.html</title>
+	<style>	
+		body{
+			/* 글자 스타일 
+			normal (기본값) | italic
+			상속된다.*/
+			font-style: italic;
+			/* 글꼴
+			좌측에서 부터 순서대로 적용된다. 
+			하위 요소로 상속된다. */
+			font-family: "Times New Roman", Consolas, NanumGothic, Gothic, serif;
+			/* 글자의 굵기 
+			normal | bold 
+			하위 요소로 상속 된다. */
+			font-weight: bold;
+			/* 글짜 꾸미기
+			none (기본값) | underline | overline | line-through
+			하위요소로 상속된다.*/
+			text-decoration: underline;
+			/* 글자의 크기 
+			하위 요소로 상속된다.*/
+			font-size: 20px;
+		}
+		#one{
+			font-style: normal;
+			font-weight: normal;
+			text-decoration: none;
+			font-size: 16px;
+			/* 대 소문자 
+			none (기본값)|uppercase|lowercase|capitalize*/
+			text-transform: capitalize;
+			/* 자간 */
+			letter-spacing: 10px;
+			/* 문자열 한줄의 높이 */
+			line-height: 50px;
+			/* 첫 단어 들여쓰기 */
+			text-indent: 100px;
+		}
+	</style>
+</head>
+<body>
+ABCD
+<p>abcd 가나다라 하위요소</p>
+<p id="one">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, iusto error obcaecati consectetur quis suscipit officia repellendus doloribus, nam repudiandae quas sit minima quaerat in, corrupti excepturi fugiat facere perspiciatis.</p>	
+</body>
+</html>

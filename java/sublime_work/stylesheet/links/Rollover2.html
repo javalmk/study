@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Rollover2.html</title>
+	<style>
+		#one{
+			display: block;
+			width: 200px;
+			height: 63px;
+			background-image: url("../basic/images/toucancombo.jpg");
+			text-indent: -99999px;
+			position: relative;
+		}
+		/* :after 가상 요소 선택자 */
+		#one:after{
+			content: " ";
+			background-image: url("../basic/images/toucancombo.jpg");
+			background-position: 0 -63px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 200px;
+			height: 63px;
+			/* 투명도를 부여해서 안보이게 */
+			opacity: 0; /* 완전 투명 */
+			
+			/* 투명도에 transition 적용하기 */
+			transition-property: opacity;
+			transition-duration: 0.4s;
+			transition-timing-function: linear;
+		}
+
+		#one:hover:after{
+			opacity: 1; /* 완전 불투명 */
+		}
+	</style>
+</head>
+<body>
+<a href="#" id="one">자세히 보기</a>	
+</body>
+</html>

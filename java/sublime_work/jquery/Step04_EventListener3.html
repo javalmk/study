@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step04_EventListener3.html</title>
+	<style>
+		.mouse-pad{
+			width: 500px;
+			height: 500px;
+			background-color: yellow;
+			border: 1px solid red;
+			cursor: crosshair;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+<div class="mouse-pad">
+	
+</div>
+<script src="js/jquery-3.2.1.js"></script>	
+<script>
+	// 클래스명이 mouse-pad 인곳에 mousemove 이벤트가 일어났을때 실행할 함수 등록 
+	$(".mouse-pad").on("mousemove", function(event){
+		console.log("mousemove!");
+		//이벤트가 일어난곳의 상대 좌표 얻어오기
+		// var eventX=event.offsetX;
+		// var eventY=event.offsetY;
+
+		//페이지 내에서의 좌표
+		var eventX=event.pageX;
+		var eventY=event.pageY;
+
+		//출력할 문자열 구성하기
+		var info="x : "+eventX+" y :"+eventY;
+		//출력하기
+		$(this).text(info);
+	});
+</script>
+</body>
+</html>

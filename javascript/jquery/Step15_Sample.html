@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step15_Sample.html</title>
+	<style>
+		.wrapper{
+			width: 800px;
+			height: 500px;
+			border: 1px solid red;
+			margin: 0 auto;
+			position: relative;
+		}
+		.wrapper img{
+			position: absolute;
+			/* 이미지가 마우스 포인터 이벤트를 받지 않게*/
+			pointer-events: none;
+		}
+		#backImg{
+			width: 800px;
+			height: 500px;
+			top: 0;
+			left: 0;
+			z-index: 0;
+		}
+		#snipeImg{
+			width: 100px;
+			height: 100px;
+			top: 250px;
+			left: 400px;
+			z-index: 20;
+		}
+		#rabbitImg{
+			width: 100px;
+			height: 100px;
+			top: 250px;
+			left: 400px;
+			z-index: 10;
+		}
+		/* 총알 구멍 이미지에 적용할 css */
+		.hole{
+			width: 20px;
+			height: 20px;
+			z-index: 5;
+		}
+		.point{
+			text-align: center;
+			font-size: 30px;
+			font-weight: bold;
+		}
+		/* 토끼 파편에 적용할 css */
+		.fragment{
+			width: 100px;
+			height: 100px;
+			z-index: 15;
+		}
+	</style>
+</head>
+<body>
+<div class="point">0</div>
+<div class="wrapper">
+	<img id="backImg" src="images/background.jpg"/>
+	<img id="snipeImg" src="images/snipe.png"/>
+	<img id="rabbitImg" src="images/rabbit_1.png"/>
+</div>	
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	//스나이프의 x 좌표와 y 좌표를 담을 변수 
+	var snipeX=0;
+	var snipeY=0;
+
+	//오디오 로딩하기
+	var fireSound=new Audio("sounds/fire.wav");
+	var screamSound=new Audio("sounds/birddie.mp3");
+
+	//토끼 이미지를 출력할 문서 객체를 미리 만들어서 배열에 저장
+	var rabbit1=$("<img/>")
+	.attr("src", "images/rabbit_1.png")
+	.attr("id", "rabbitImg");
+	var rabbit2=$("<img/>")
+	.attr("src", "images/rabbit2.png")
+	.attr("id", "rabbitImg");
+
+	var rabbitImgs=[rabbit1, rabbit2];
+	var rabbitIndex=0;//토끼 이미지 인덱스를 저장할 변수 
+
+	//카운트를 셀 변수 만들고 0 대입하기  
+	var count=0;
+
+	//토끼의 x 좌표 y 좌표 
+	var rabbitX=400;
+	var rabbitY=250;
+
+	//점수를 저장할 변수 선언하고 0 대입하기
+	var point=0;
+	//토끼 파편 객체를 관리할 배열
+	var fragments=[];
+
+	//1초에 50번 호출되는 함수 등록 하기 
+	setInterval(function(){
+		count++; //카운트 증가 시키기 
+
+		//스나이프의 위치 
+		$("#snipeImg")
+		.css("left", snipeX-50+"px")
+		.css("top", snipeY-50+"px");
+		//토끼의 위치
+		$("#rabbitImg")
+		.css("left", rabbitX-50+"px")
+		.css("top", rabbitY-50+"px");
+		//점수 출력
+		$(".point").text(point);
+
+		rabbitAni();
+		//토끼 파편 움직이기
+		moveFragment();
+		//제거할 파편 제거 하기
+		checkFragment();
+	}, 20);
+
+	//제거할 파편은 제거하는 함수
+	function checkFragment(){
+		//배열에 있는 object 를 뒤에서 부터 역순으로 검사해서 제거할 object 는 제거한다. 
+		for(var i=fragments.length-1 ; i>=0; i--){
+			var obj=fragments[i];
+			if(obj.isDead){
+				//배열에서 제거
+				fragments.splice(i, 1);
+				//body 에서 제거
+				obj.img.remove();
+			}
+		}
+	}
+
+	//토끼 파편 움직이는 함수 
+	function moveFragment(){
+		//토끼 파편 움직이기
+		for(var i=0; i<fragments.length; i++){
+			//파편 정보를 담고 있는 i번째 객체를 얻어온다.
+			var obj=fragments[i];
+			//속도를 좌표에 반영한다.
+			obj.x = obj.x + obj.speedX;
+			obj.y = obj.y + obj.speedY;
+			//좌표를 top 과 left 에 반영한다.
+			obj.img
+			.css("left", obj.x-50+"px")
+			.css("top", obj.y-50+"px");
+			//화면을 벗어 났는지 여부 
+			obj.isDead = obj.x > 850 ||
+			        	obj.x < -50 ||
+			        	obj.y > 550 ||
+			        	obj.y < -50 ;
+		}
+	}
+
+	//토끼 애니메이션 함수 
+	function rabbitAni(){
+		if(count%25 != 0){
+			return;
+		}
+
+		//인덱스 1 증가 시키고 
+		rabbitIndex++;
+		//만일 존재하지 않는 인덱스라면 
+		if(rabbitIndex==2){
+			//다시 처음으로 되돌린다. 
+			rabbitIndex=0;
+		}
+		//배열에서 인덱스에 해당하는 문서 객체로 이미지 교체 
+		$("#rabbitImg").replaceWith(rabbitImgs[rabbitIndex]);
+	}
+
+
+	//.wrapper 에 mousemove 이벤트 처리 
+	$(".wrapper").on("mousemove", function(e){
+		//이벤트가 일어난 곳의 좌표를 얻어와서 스나이프의 좌표에 반영한다
+		snipeX=e.offsetX;
+		snipeY=e.offsetY;
+	});
+	//.wrapper 에 mousedown 이벤트 처리 
+	$(".wrapper").on("mousedown", function(e){
+		//총소리 내기
+		fireSound.play();
+		//재생 위치를 다시 처음으로 돌리기
+		fireSound.currentTime=0;
+		//이벤트가 일어난 곳의 좌표 읽어오기 
+		var eventX=e.offsetX;
+		var eventY=e.offsetY;
+
+		//총알 구멍 만들기
+		$("<img/>")
+		.attr("src", "images/hole.png")
+		.addClass("hole")
+		.css("left", eventX-10+"px")
+		.css("top", eventY-10+"px")
+		.appendTo(".wrapper");
+
+		//토끼가 총에 맞았는지 여부 
+		var isShooted = eventX > rabbitX-50 &&
+						eventX < rabbitX+50 &&
+						eventY > rabbitY-50 &&
+						eventY < rabbitY+50;
+		if(isShooted){//만일 토끼가 총에 맞았다면 
+			//1. 비명 소리를 낸다
+			screamSound.play();
+			screamSound.currentTime=0;
+			//2. 토끼 파편을 만든다.
+			for(var i=0; i<5; i++){
+				//빈 object 를 만들어서 
+				var obj={};
+				//초기 좌표를 부여하고
+				obj.x=rabbitX;
+				obj.y=rabbitY;
+				//-20 ~ 20 사이의 랜덤한 정수를 발생시켜서 파편의 속도 부여
+				obj.speedX=Math.floor(Math.random()*8)-4;
+				obj.speedY=Math.floor(Math.random()*8)-4;
+				//화면에서 제거할지 여부 
+				obj.isDead=false;
+				//이미지 객체
+				obj.img=$("<img/>")
+				.attr("src","images/r"+i+".png")
+				.addClass("fragment")
+				.css("left", rabbitX-50+"px")
+				.css("top", rabbitY-50+"px")
+				.appendTo(".wrapper");
+				//배열에 저장
+				fragments.push(obj);
+			}
+			//3. 다른 위치에 토끼를 또 위치 시킨다.
+			rabbitX = Math.floor(Math.random()*800);
+			rabbitY = Math.floor(Math.random()*500);
+			//4. 점수를 올린다.
+			point++;
+
+		}
+	});
+</script>
+</body>
+</html>

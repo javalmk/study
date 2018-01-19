@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step10_Example.html</title>
+	<style>
+		/* ul 요소의 기본 스타일 제거*/
+		.wrapper ul{
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+			
+		.wrapper li{
+			float: left;
+			padding: 0 5px;
+			border-right: 1px solid #cecece;
+		}
+		/* last-child 가상 클래스 선택자  */
+		.wrapper li:last-child{
+			border-right-width: 0;
+		}
+		
+		/* a 요소의 기본 스타일 제거 */
+		.wrapper li a{
+			text-decoration: none;
+			color: #000;
+		}
+		
+		.wrapper li:hover{
+			background-color: yellow;
+			text-decoration: underline;
+		}
+
+
+		p{
+			clear: left;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="wrapper">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">News</a></li>
+			<li><a href="#">Game</a></li>
+			<li><a href="#">Cafe</a></li>
+		</ul>
+	</div>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut numquam nobis tempore impedit! Voluptate at, asperiores, debitis earum quam impedit aliquid, veritatis iusto eveniet rem perferendis fugiat nesciunt, dolore sapiente?</p>
+</div>	
+</body>
+</html>

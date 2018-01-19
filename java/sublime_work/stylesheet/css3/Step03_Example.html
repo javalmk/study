@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step03_Example.html</title>
+	<link rel="stylesheet" href="css/bootstrap.css"/>
+	<style>
+		img{
+			transition: transform 1s linear;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<button id="leftBtn" class="btn btn-primary"><i class="glyphicon glyphicon-chevron-left"></i></button>
+	<button id="rotateBtn" class="btn btn-info"><i class="glyphicon glyphicon-repeat"></i></button>
+	<button id="rightBtn" class="btn btn-primary"><i class="glyphicon glyphicon-chevron-right"></i></button>
+	<br/>
+	<img src="images/rabbit_1.png" id="rabbit"/>
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	/*
+		버튼을 눌렀을때 좌우로 100px 씩 평행 이동 혹은
+		90 도씩 토끼가 회전 하도록 해 보세요.
+
+		- hint
+		$("#rabbit").css("transform","translateX() rotate()");
+	*/
+
+	//토끼의 x 좌표를 관리할 변수를 만들고 초기값 0 대입하기
+
+	var x=0;
+
+	$("#leftBtn").click(function(){
+		//x 변수에 들어있는 값 100 감소 시키기 
+		//x = x-100;
+		x -= 100;
+		move();
+	});
+	$("#rightBtn").click(function(){
+		//x 변수에 들어있는 값 100 증가 시키기 
+		//x = x+100;
+		x += 100;
+		move();
+	});
+
+	//토끼의 회전 값을 저장할 변수 만들고 초기값 0 대입하기
+	var angle=0;
+
+	$("#rotateBtn").click(function(){
+		angle += 90;
+		move();
+	});
+
+	//움직이는 함수
+	function move(){
+		$("#rabbit").css("transform","translateX("+x+"px) rotate("+angle+"deg)");
+	}
+	
+</script>	
+</body>
+</html>

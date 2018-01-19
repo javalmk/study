@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step09_Example.html</title>
+	<style>
+		/* .container 가운데 정렬*/
+		.container{
+			width: 768px;
+			margin: 0 auto;
+		}
+		/* ul 요소의 기본 스타일 제거 */
+		.nav{
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
+		/* li 요소를 왼쪽으로 띄우기 */
+		.nav li{
+			float: left;
+			width: 100px;
+		}
+		/* a 요소의 스타일 변경 */
+		.nav li a{
+			text-decoration: none;
+			color: #000;
+		}
+		.nav li:hover{
+			background-color: yellow;
+		}
+		/* 추가 혹은 제거 시킬 클래스 */
+		.active{
+			text-decoration: underline;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<ul class="nav">
+		<li class="active"><a href="#one">One</a></li>
+		<li><a href="#two">Two</a></li>
+		<li><a href="#three">Three</a></li>
+		<li><a href="#four">Four</a></li>
+	</ul>
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	// .nav 의 자손 중에서 a 요소를 클릭했을때 실행할 함수 등록 
+	$(".nav a").click(function(){
+		$(this)
+		.parent()
+		.addClass("active")
+		.siblings()
+		.removeClass("active");
+	});
+</script>	
+</body>
+</html>

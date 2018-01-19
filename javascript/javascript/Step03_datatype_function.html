@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step03_datatype_function.html</title>
+</head>
+<body>
+<script>
+	// function type 데이터를 만들어서 f 라는 이름의 변수에 참조값을 대입하기 
+	var f=function(){
+		console.log("하나");
+		console.log("두울");
+		console.log("세엣");
+	};
+	//f 에 들어 있는 참조값을 f2 라는 변수에 대입(복사)
+	var f2=f;
+
+	var myCar={
+		name:"소나타",
+		drive:function(){
+			console.log("부릉부릉!");
+			console.log("달려요!");
+		}
+	};
+
+</script>	
+<h1>button 테스트</h1>
+<button onclick="console.log(999)">눌러보셈</button>
+<button onclick="f()">눌러보셈2</button>
+<button onclick="f2()">눌러보셈3</button>
+<button onclick="myCar.drive()">달리자</button>
+</body>
+</html>

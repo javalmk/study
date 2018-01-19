@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step07_CustomEffect.html</title>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+<button id="largerBtn">larger</button>
+<button id="smallerBtn">smaller</button>
+<div class="box">Box</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	/* 
+		largerBtn 을 눌렀을때 .box div 의 width 와 height 를 
+		각각 200px 로 바꿔 보세요.
+	*/
+	$("#largerBtn").click(function(){
+		//$(".box").css("width","200px").css("height","200px");
+		$(".box").animate({
+			width:"200px",
+			height:"200px",
+			"font-size":"50px",
+			borderWidth:"10px"
+		}, 1000);
+	});
+
+	/* smaller 버튼을 눌렀을때 0.2 초 동안에 원래의 크기로 원상 복구 해 보세요. */
+
+	$("#smallerBtn").click(function(){
+		
+		$(".box").animate({
+			width:"100px",
+			height:"100px",
+			"font-size":"16px",
+			borderWidth:"1px"
+		}, 200);
+	});
+
+</script>	
+</body>
+</html>

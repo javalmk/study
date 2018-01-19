@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>imgLiquid.html</title>
+	<style>
+		.image-panel{
+			width: 300px;
+			height: 300px;
+			border: 2px solid red;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="image-panel">
+		<img src="images/1.jpg"/>
+	</div>
+	<div class="image-panel" 
+		data-imgLiquid-horizontalAlign="right">
+		<img src="images/2.jpg"/>
+	</div>
+	<div class="image-panel"
+		data-imgLiquid-verticalAlign="bottom">
+		<img src="images/3.jpg"/>
+	</div>
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/imgLiquid.js"></script>
+<script>
+	$(".image-panel").imgLiquid();
+</script>	
+</body>
+</html>

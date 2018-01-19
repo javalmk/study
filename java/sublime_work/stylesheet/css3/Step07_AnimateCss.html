@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step07_AnimateCss.html</title>
+	<link rel="stylesheet" href="css/animate.css"/>
+	<style>
+		.wrapper{
+			width: 768px;
+			margin: 200px auto;
+		}
+		#one{
+			/* animate.css 에는 default 값으로 1s 로 정의 되어있는데 다른값으로 재정의 하기 */
+			animation-duration: 0.4s;
+		}
+	</style>
+</head>
+<body>
+<div class="wrapper">
+	<img class="animated bounceInDown" src="images/blog-title.png"/><br/>
+	<img class="animated shake" src="images/blog-title.png" alt=""/><br/>
+	<img class="animated rubberBand infinite" src="images/blog-title.png" alt=""/><br/>
+	<img id="one" class="animated bounceInLeft" src="images/blog-title.png" alt=""/><br/>
+</div>
+</body>
+</html>

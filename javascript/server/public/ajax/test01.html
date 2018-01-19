@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>/ajax/test01.html</title>
+</head>
+<body>
+<h3>ajax 요청 테스트</h3>
+<input type="text" id="inputMsg"/>
+<button id="sendBtn">전송</button>
+<ul id="msgList">
+	
+</ul>
+<!-- 절대 경로를 이용해서 jquery 로딩하기 -->
+<script src="/js/jquery-3.2.1.js"></script>
+<script>
+	//전송 버튼을 눌렀을때 실행할 함수 등록 
+	$("#sendBtn").click(function(){
+		//입력한 문자열 읽어오기
+		var msg=$("#inputMsg").val();
+
+		//서버에 ajax 요청하기 
+		$.ajax({
+			method:"post",
+			url:"/ajax/test01",
+			data:{msg:msg},
+			success:function(data){
+				console.log(data);
+				$("<li/>").text(data).appendTo("#msgList");
+			}
+		});
+	});
+</script>	
+</body>
+</html>

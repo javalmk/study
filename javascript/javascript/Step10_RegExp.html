@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step10_RegExp.html</title>
+</head>
+<body>
+<p>who 로 시작하는 문자열을 입력하세요</p>
+<input type="text" placeholder="검증할 문자열 입력..." />
+<button id="validateBtn">검증</button>
+<p id="myConsole"></p>
+<script src="../jquery/js/jquery-3.2.1.js"></script>
+<script>
+	/*
+		Regular Expression (정규 표현식)
+	*/
+
+	var reg1=/Hello, World!/;
+
+	var str1="Hello, World!";
+	var str2="hello, world!";
+	var str3="1234 Hello, World! 1234";
+
+	var reg2=/./;
+	var reg3=/./g;
+	var reg4=/....../;
+	var reg5=/....../g;
+
+	var str4="Regular expressions are powerful!!!";
+
+	//검증 버튼을 눌렀을때 실행할 함수 등록
+	$("#validateBtn").click(function(){
+		//입력한 문자열을 읽어와서 
+		var str=$("input").val();
+		// who 로 시작 하는지 검증 할 정규 표현식
+		var reg=/^who/;
+		// 검증 통과 여부를 boolean type 으로 얻어내기
+		var isOk=reg.test(str);
+		if(isOk){
+			$("#myConsole").text(str+" 은 who 로 시작하는 문자열 입니다.");
+		}else{
+			$("#myConsole").text(str+" 은 who 로 시작하는 문자열이 아닙니다.");
+		}
+	});
+</script>	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

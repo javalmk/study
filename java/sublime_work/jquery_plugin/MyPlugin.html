@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MyPlugin.html</title>
+</head>
+<body>
+<div>div1</div>
+<div>div2</div>
+<div>div3</div>
+<script src="js/jquery-3.2.1.js"></script>
+<!-- jquery plugin 로딩 -->
+<script src="js/jquery.gura.js"></script>
+<script>
+	//$("div").gura();
+	$("div").gura({
+		msg:"hello~",
+		textColor:"yellow",
+		bgColor:"#000"
+	});
+</script>	
+</body>
+</html>

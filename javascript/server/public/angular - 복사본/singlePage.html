@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<title>/angular/singlePage.html</title>
+<link rel="stylesheet" href="/css/bootstrap.css">
+<style>
+	tbody tr:hover{
+		background-color: yellow;
+		cursor: pointer;
+	}
+</style>
+<script src="/js/angular.min.js"></script>
+<!-- route 모듈 javascript 로딩 -->
+<script src="/js/angular-route.min.js"></script>
+<script>
+	var myApp=angular.module("myApp", ["ngRoute"]);
+
+	// single page 라우터 설정
+	myApp.config(function($routeProvider){
+		$routeProvider
+		.when("/home",{templateUrl:"views/home.html"})
+		.when("/game",{templateUrl:"views/game.html"})
+		.when("/contacts",{
+			templateUrl:"views/contacts.html",
+			controller:"contactsCtrl"
+		})
+		.when("/contacts/:index",{
+			templateUrl:"views/detail.html",
+			controller:"detailCtrl"
+		})
+		.otherwise({redirectTo:"/home"});
+	});
+
+	// 자세히 보기 컨드롤러 
+	myApp.controller("detailCtrl", function($scope, $http, $routeParams, $location){
+		//get 방식 요청 url 구성하기
+		var url="/angular/girls/detail?index="+$routeParams.index;
+		// ajax 요청을 통해서 index 에 해당하는 회원정보 얻어오기 
+		$http({
+			method:"get",
+			url:url
+		}).success(function(data){
+			$scope.girl=data;
+		});
+		//뒤로 가기 버튼을 눌렀을때 
+		$scope.back=function(){
+			//현재 페이지의 위치를 /contacts 로 바꿔준다. 
+			$location.url("/contacts");
+		};
+	});
+
+	// nav 요소 컨트롤러 만들기 
+	myApp.controller("navCtrl", function($scope){
+		$scope.activated="home";
+	});
+
+	//연락처 정보 컨트롤러 
+	myApp.controller("contactsCtrl", function($scope, $http, $location){
+		//table row 를 클릭했을때 자세히 보기 
+		$scope.goDetail=function(index){
+			//index 는 클릭한 row 의 인덱스가 들어 있다.
+			$location.url("/contacts/"+index);
+			console.log("index:"+index);
+		};
+
+		$http({
+			method:"get",
+			url:"/angular/girls"
+		}).success(function(data){
+			$scope.girls=data;
+		});
+	});
+</script>
+</head>
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1>Angular Js <small>Router Test</small></h1>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-4">
+			<ul ng-controller="navCtrl" class="nav nav-pills nav-stacked">
+				<li ng-class="{active:activated=='home'}"><a href="#home" ng-click="activated='home'">home</a></li>
+				<li ng-class="{active:activated=='game'}"><a href="#game" ng-click="activated='game'">game</a></li>
+				<li ng-class="{active:activated=='contacts'}"><a href="#contacts" ng-click="activated='contacts'">contacts</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-12 col-sm-8">
+			<div ng-view></div>
+		</div>
+	</div>
+</div>	
+</body>
+</html>

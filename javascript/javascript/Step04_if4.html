@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step04_if4.html</title>
+</head>
+<body>
+<script>
+
+	var f=function(){
+		//점수를 문자열로 입력 받는다.
+		var str=prompt("점수 입력(0~100)");
+		//문자열을 숫자로 바꾼다. 
+		var jumsu=parseFloat(str);
+
+		if(jumsu >= 90){
+			console.log(jumsu+" 점은 수입니다.");
+		}else if(jumsu >= 80){
+			console.log(jumsu+" 점은 우 입니다.");
+		}else if(jumsu >= 70){
+			console.log(jumsu+" 점은 미 입니다.");
+		}else if(jumsu >= 60){
+			console.log(jumsu+" 점은 양 입니다.");
+		}else{
+			console.log(jumsu+" 점은 가 입니다.");
+		}
+	};
+
+</script>
+<button onclick="f();">눌러보셈</button>	
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step16_form2.html</title>
+</head>
+<body>
+<h3>회원 가입 폼 입니다.</h3>	
+<form action="signupAction" method="post" id="myForm">
+	아이디 <input type="text" id="id"/><br/>
+	비밀번호 <input type="password" id="pwd"/><br/>
+	비밀번호 확인<input type="password" id="pwd2"/><br/>
+	<button type="submit">가입</button>
+	<button type="reset">취소</button>
+</form>	
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	/*
+		1. 아이디 검증
+
+		- 글자수 : 5~10
+		- 허용문자 : 영문자 소문자만
+
+		2. 비밀 번호 검증 
+
+		- pwd 와 pwd2 에 입력한 내용이 같아야 한다.
+
+		Quiz : 위 검증을 통과 하지 못하면 '가입' 버튼을 눌렀을때 폼이 제출 되지 못하도록 해 보세요. 
+	*/
+	//$("#myForm").on("submit", function(){});
+
+	$("#myForm").submit(function(){
+		//입력한 아이디를 읽어온다.
+		var inputId=$("#id").val();
+		//아이디를 검증할 정규표현식
+		//var regId=/^[a-z]{5,10}$/;
+		
+		//아래와 같이 정규 표현식 객체를 만들수도 있다. 
+		var regId=new RegExp("^[a-z]{5,10}$");
+
+		if(regId.test(inputId)==false){
+			alert("아이디를 확인 하세요.");
+			$("#id").focus();
+			return false;
+		}
+
+		//비밀번호
+		var inputPwd=$("#pwd").val();
+		var inputPwd2=$("#pwd2").val();
+
+		//입력한 비밀번호가 같지 않으면 
+		if(inputPwd != inputPwd2){
+			alert("비밀번호를 확인 하세요.");
+			$("#pwd").focus();
+			return false;
+		}
+	});
+</script>
+</body>
+</html>

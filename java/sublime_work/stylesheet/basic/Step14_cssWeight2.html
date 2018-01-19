@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step14_cssWeight2.html</title>
+	<style>
+	    /* 내부 css */
+		p{
+			background-color: green;
+			/* !important 는 재정의 불가 */
+			color: blue !important;
+		}
+	</style>
+</head>
+<body>
+<!-- 인라인 css 가 내부 css 보다 우선시 된다.  -->
+<p style="background-color: yellow;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex incidunt excepturi, quidem quia, ipsum voluptatem laudantium sunt asperiores eligendi commodi obcaecati doloribus, doloremque aperiam est modi cumque vel omnis? Maiores.</p>	
+<p style="color:red;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium ex obcaecati, maxime quidem hic excepturi neque, facilis, laboriosam quisquam, omnis facere culpa. Maxime hic quasi, suscipit eius expedita numquam quam.</p>
+</body>
+</html>

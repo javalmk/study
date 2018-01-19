@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step06_Animation2.html</title>
+	<link rel="stylesheet" href="css/bootstrap.css"/>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: #0f0;
+			border: 1px solid red;
+		}
+		.my-ani{
+			/* 줄인 표현으로 한줄에 쓸수 있다.*/
+			animation: myAni 3s ease-out infinite alternate;
+		}
+
+		/* custom 키프레임 정의하기 */
+		@keyframes myAni{
+			0%{
+				background-color: #0f0;
+				transform: rotate(0deg) scale(1.0);
+			}
+			50%{
+				background-color: #f0f;
+				transform: rotate(180deg) scale(0.5);
+			}	
+			100%{
+				background-color: #ff0;
+				transform: rotate(360deg) scale(1.5);
+			}
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<h3>animation 테스트</h3>
+	<div class="box">box</div>
+	<button id="startBtn">start</button>
+	<button id="stopBtn">stop</button>
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	$("#startBtn").click(function(){
+		$(".box").addClass("my-ani");
+	});
+	$("#stopBtn").click(function(){
+		$(".box").removeClass("my-ani");
+	});
+</script>	
+</body>
+</html>

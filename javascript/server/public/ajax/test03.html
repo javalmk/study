@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>/ajax/test03.html</title>
+</head>
+<body>
+<h3>ajax 테스트 3</h3>
+<form action="/signupAction" method="post">
+	아이디 <input type="text" name="id"/>
+	<button id="checkBtn">중복확인</button>
+	<span id="checkResult"></span>
+	<br/>
+	비밀번호 <input type="password" name="pwd"/>
+	<br/>
+	전화번호 <input type="text" name="phone"/>
+	<br/>
+	<button type="submit">가입</button>
+	<button type="reset">취소</button>
+</form>
+<script src="/js/jquery-3.2.1.js"></script>	
+<script>
+	//중복확인 버튼을 눌렀을때 실행할 함수 등록 
+	$("#checkBtn").click(function(){
+
+		//입력한 아이디를 읽어온다.
+		var id=$("input[name=id]").val();
+		// ajax 요청으로 입력한 아이디를 보낸다.
+		$.ajax({
+			method:"post",
+			url:"/idCheck",
+			data:{inputId:id},
+			success:function(data){
+				// obj => {canUse:true} or {canUse:false}
+				var obj=JSON.parse(data);
+				if(obj.canUse){//사용할수 있는 아이디라면 
+					$("#checkResult")
+					.text("사용가능")
+					.css("color","green");	
+				}else{//사용할수 없다면 
+					$("#checkResult")
+					.text("사용불가")
+					.css("color","red");
+				}
+			}
+		});
+
+		return false; //폼 전송 막기 
+	});
+</script>
+</body>
+</html>

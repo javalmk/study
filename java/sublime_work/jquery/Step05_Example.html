@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step05_Example.html</title>
+</head>
+<body>
+<input type="text" id="inputMsg"/>
+<button id="sendBtn">전송</button>
+<ul id="msgList">
+	
+</ul>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	/*
+		전송 버튼을 눌렀을때
+		input 요소에 입력한 문자열을 읽어와서 
+		li 요소를 만들어서 읽어온 문자열을 출력한 다음
+		ul 요소에 추가 해 보세요. 
+	*/
+	$("#sendBtn").click(function(){
+		//입력한 문자열을 읽어와서 변수에 담은 다음 
+		var msg=$("#inputMsg").val();
+		// li 요소를 만들어서 문자열 출력 하고 ul 에 추가 
+		$("<li/>").text(msg).appendTo("#msgList");
+	});
+</script>	
+</body>
+</html>

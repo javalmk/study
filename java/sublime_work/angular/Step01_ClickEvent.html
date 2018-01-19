@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Step01_ClickEvent.html</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<h3>click event 처리</h3>
+	<!-- click 이벤트가 일어났을때 할 작업을 ng-click="" 
+		따옴표 안에 작성하면 된다. 
+		msg='클릭했네?' 는 msg 라는 이름의 model 을 만들고 
+		문자열 데이터를 저장하는 역활을 한다. 
+	-->
+	<button ng-click="msg='클릭했네?'">눌러보셈</button>
+	<button ng-click="msg='clicked!'">눌러보셈2</button>
+	<!-- {{msg}} 는 msg 라는 이름의 모델의 내용을 출력 -->
+	<p>{{msg}}</p>
+	<!-- 모델의 초기값을 부여 할때는 ng-init 속성을 이용한다. -->
+	<button ng-init="count=0" ng-click="count=count+1">숫자 세기</button>
+	<p>클릭 횟수 : <strong>{{count}}</strong></p>
+</div>	
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step03_datatype_function2.html</title>
+</head>
+<body>
+<script>
+	/*
+		함수가 종료 되는 시점
+		1. 실행하다가 더이상 실행할게 없을때
+		2. 실행하다가 return 이라는 예약어를 만났을때
+
+		- 함수가 종료되면 실행순서는 함수를 호출한 곳으로 되돌아간다. 
+		- 되돌아갈때 어떤 data 를 반듯이 가지고 돌아간다.
+	*/
+	var a = function(){
+		console.log("a 함수 호출됨");
+	};
+
+	var b = function(){
+		console.log("b 함수 호출됨");
+		return;
+	};
+
+	console.log("a 함수 호출 직전");
+	a();
+	console.log("a 함수 리턴 이후");
+	
+	console.log("--------------");
+
+	console.log("b 함수 호출 직전");
+	b();
+	console.log("b 함수 리턴 이후");
+</script>	
+</body>
+</html>

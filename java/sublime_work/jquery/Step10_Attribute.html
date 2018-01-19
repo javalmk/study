@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step10_Attribute.html</title>
+</head>
+<body>
+<div class="wrapper"></div>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+
+	$("<a/>")
+	.attr("href", "http://daum.net")
+	.text("daum")
+	.appendTo(".wrapper");
+
+	/* img 요소를 만들어서 src="images/image1.png" 
+	   속성을 추가한 다음 .wrapper 에 추가해 보세요. 
+	 */
+
+	$("<img/>")
+	.attr("src","images/image1.png")
+	.attr("width","200")
+	.appendTo(".wrapper");
+
+</script>	
+</body>
+</html>

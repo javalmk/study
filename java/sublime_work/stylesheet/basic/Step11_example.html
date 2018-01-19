@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step11_example.html</title>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+<button id="showBtn">show</button>
+<button id="hideBtn">hide</button>
+<div id="one" class="box">box</div>	
+<script>
+	/*	
+		show 버튼을 눌렀을때 box div 를 보이게 
+		hide 버튼을 눌렀을때 box div 를 안보이게 
+		동작하도록 해 보세요.
+	*/
+	document.querySelector("#showBtn")
+	.addEventListener("click", function(){
+		//id 가 one 인 div 보이게 하기
+		document.querySelector("#one").style.display="block";
+	});
+
+	document.querySelector("#hideBtn")
+	.addEventListener("click", function(){
+		document.querySelector("#one").style.display="none";
+	});
+</script>
+</body>
+</html>

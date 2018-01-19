@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Step09_switch.html</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+<select ng-init="num=1" ng-model="num">
+	<option value="1" ng-selected="true">one</option>
+	<option value="2">two</option>
+	<option value="3">three</option>
+	<option value="4">four</option>
+	<option value="5">five</option>
+</select>
+<div ng-switch="num">
+	<img ng-switch-when="1" src="images/image1.png" width="300"/>
+	<img ng-switch-when="2" src="images/image2.png" width="300"/>
+	<img ng-switch-when="3" src="images/image3.png" width="300"/>
+	<p ng-switch-default >해당 이미지는 존재하지 않습니다.</p>
+</div>	
+</body>
+</html>

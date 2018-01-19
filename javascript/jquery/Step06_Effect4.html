@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step06_Effect4.html</title>
+	<style>
+		.wrapper .box{
+			width: 200px;
+			height: 200px;
+			background-color: yellow;
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+<button id="hideBtn">숨기기</button>
+<button id="showBtn">보이기</button>
+<button id="toggleBtn">토글</button>
+<div class="wrapper">
+	<div class="box"></div>
+</div>
+<p id="one"></p>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	
+	$("#hideBtn").click(function(){
+		$(".box").slideUp(1000, function(){
+			$("#one").text("박스가 사라졌습니다.");
+		});
+	});
+
+	$("#showBtn").click(function(){
+		$(".box").slideDown(function(){
+			$("#one").text("");
+		});
+	});
+
+	$("#toggleBtn").click(function(){
+		$(".box").slideToggle();
+	});
+</script>	
+</body>
+</html>

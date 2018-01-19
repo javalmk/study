@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step12_Etc3.html</title>
+</head>
+<body>
+<button id="myBtn">눌러보셈</button>
+<button id="moveBtn">이동하기</button>
+<button id="cancelBtn">이동취소</button>
+<p id="myConsole"></p>	
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	$("#myBtn").click(function(){
+
+		//1초 이후에 실행될 함수 등록 
+		setTimeout(function(){
+			alert("버튼을 눌렀네요?");
+		}, 1000);
+	});
+
+	var timeoutId;
+
+	$("#moveBtn").click(function(){
+		
+		$("#myConsole").text("5 초 이후에 이동합니다.");
+		timeoutId=setTimeout(function(){
+			//페이지 이동하기
+			location.href="http://study.kimgura.net";
+		}, 5000);
+	
+	});
+
+	$("#cancelBtn").click(function(){
+		//setTimeout 취소 하기 
+		clearTimeout(timeoutId);
+		$("#myConsole").text("이동 취소 되었습니다.");
+	});
+</script>	
+</body>
+</html>

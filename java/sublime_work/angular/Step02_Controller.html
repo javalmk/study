@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step02_Controller.html</title>
+	<script src="js/angular.min.js"></script>
+	<script>
+		// "myApp" 이라는 이름의 모듈 만들기 
+		var myApp=angular.module("myApp",[]);
+
+		// 만든 모듈을 이용해서 ctrl1 이라는 이름의 컨트롤러 만들기 
+		myApp.controller("ctrl1", function($scope){
+			console.log("ctrl1 !");
+			$scope.name="김구라"; //string type
+			$scope.mem={
+				num:1,
+				name:"김구라",
+				addr:"노량진"
+			}; //object type
+		});
+		// 만든 모듈을 이용해서 ctrl2 이라는 이름의 컨트롤러 만들기 
+		myApp.controller("ctrl2", function($scope){
+			console.log("ctrl2 !");
+			$scope.name="원숭이";
+			$scope.mem={
+				num:2,
+				name:"원숭이",
+				addr:"상도동"
+			}; //object type
+		});
+	</script>
+</head>
+<!-- ng-app="" 에는 만든 모듈의 이름을 적는다. -->
+<body ng-app="myApp">
+<!-- ng-controller="" 에는 컨트롤러의 이름을 적는다. -->
+<div ng-controller="ctrl1">
+	<p>이름 : <strong>{{name}}</strong></p>
+	<p>
+		num : <strong>{{mem.num}}</strong><br/>
+		name : <strong>{{mem.name}}</strong><br/>
+		addr : <strong>{{mem.addr}}</strong>
+	</p>
+</div>
+<div ng-controller="ctrl2">
+	<p>이름 : <strong>{{name}}</strong></p>
+	<p>
+		num : <strong>{{mem.num}}</strong><br/>
+		name : <strong>{{mem.name}}</strong><br/>
+		addr : <strong>{{mem.addr}}</strong>
+	</p>
+</div>
+<script>
+	console.log("문서 로딩이 완료 됩니다.");
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step07_loop5.html</title>
+</head>
+<body>
+<button id="one">print names</button>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<script>
+	var nums=[10, 20, 30, 40];
+
+	nums.forEach(function(item, index){
+		console.log(item+" | "+index);
+	});
+
+	var names=["김구라", "해골", "원숭이", "주뎅이"];
+
+	// print names 버튼을 눌렀을때 names 배열에 저장된 문자열을 하나씩 참조해서 div 의 innerText 로 출력해 보세요. ( 단 .forEach() 함수을 이용해서 )
+
+	document.querySelector("#one")
+	.addEventListener("click", function(){
+		names.forEach(function(item, index){
+
+			document.querySelectorAll("div")[index].innerText=item;
+
+		});
+	});
+</script>	
+</body>
+</html>

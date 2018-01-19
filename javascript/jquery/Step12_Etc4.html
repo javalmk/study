@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step12_Etc4.html</title>
+</head>
+<body>
+<button id="countBtn">숫자세기</button>	
+<button id="stopBtn">정지</button>
+<p id="myConsole">0</p>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+
+	//카운트 값을 관리할 변수 만들고 0 으로 초기값 넣어주기 
+	var count=0;
+	//인터발의 아이디값을 저장할 변수 
+	var intervalId;
+	//인터발이 진행중인지 여부를 관리할 변수 만들고 false 로 초기값 넣어주기
+	var isRunning=false;
+
+	$("#countBtn").click(function(){
+		//만일 진행중이 아니라면 
+		if(!isRunning){
+			//1초 마다 한번씩 호출될 함수 등록 
+			intervalId = setInterval(function(){
+				//카운트 값을 1 증가 시키고 
+				count++;
+				//카운트값 출력하기 
+				$("#myConsole").text(count);
+			}, 1000);
+			//진행중인 상태로 바꿔준다.
+			isRunning=true;
+		}
+	});
+
+	$("#stopBtn").click(function(){
+		//인터발 취소 하기
+		clearInterval(intervalId);
+		//진행중이 아닌 상태로 바꿔준다.
+		isRunning=false;
+	});
+</script>
+</body>
+</html>

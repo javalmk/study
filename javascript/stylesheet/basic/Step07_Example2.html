@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step07_Example2.html</title>
+	<style>
+		.wrapper{
+			height: 500px;
+			background-color: yellow;
+			border: 1px solid red;
+			/* 1. 배치의 기준이 되는 문서에 position 속성을 부여 한다. */
+			position: relative;
+		}
+		.box{
+			width: 50px;
+			height: 50px;
+			background-color: #000;
+			color: #fff;
+			/* 2. 배치하고자 하는 문서의 position 속성을 absolute 로 지정하면 top, left, right, bottom 을 이용해서 원하는 위치에 배치할수 있다. */
+			position: absolute;
+			/*top: 100px;
+			left: 100px;*/
+			right: 100px;
+			bottom: 100px;
+		}
+	</style>
+</head>
+<body>
+<h3>특정 요소 안에서 원하는 위치에 배치</h3>
+<div class="wrapper">
+	<div class="box">box</div>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, voluptatem amet, eveniet suscipit dolor, ipsam consectetur adipisci illum reprehenderit, possimus commodi. Deleniti error reprehenderit molestiae consequuntur. Eos ex sit aliquam!</p>
+</div>	
+</body>
+</html>

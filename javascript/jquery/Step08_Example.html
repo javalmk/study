@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step07_Example.html</title>
+	<style>
+		.box{
+			width: 500px;
+			height: 500px;
+			border: 1px solid red;
+			position: relative;
+			margin: 0 auto;
+		}
+		.box img{
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			top: 250px;
+			left: 250px;
+			/* 마우스 이벤트를 받지 않도록 설정 
+			auto (기본값)| none*/
+			pointer-events: none;
+		}
+	</style>
+</head>
+<body>
+<div class="box">
+	<img src="images/b0.png"/>
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+
+	$(".box").on("mousedown", function(event){
+		//이벤트가 일어난 곳의 x 좌표 , y 좌표 얻어내기
+		var eventX=event.offsetX-25;
+		var eventY=event.offsetY-25;
+
+		// 이미지의 top 과 left 에 적용을 한다. 
+		$(".box img").animate({
+			top:eventY+"px",
+			left:eventX+"px"
+		}, 200);
+	});
+
+</script>	
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>/ajax/test02.html</title>
+</head>
+<body>
+<h3>ajax 테스트 2</h3>
+<button id="getBtn">회원 정보 받아오기</button>
+<table>
+	<thead>
+		<tr>
+			<th>번호</th>
+			<th>이름</th>
+			<th>주소</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+	</tbody>
+</table>
+<script src="/js/jquery-3.2.1.js"></script>
+<script>
+	$("#getBtn").click(function(){
+		$.ajax({
+			method:"get",
+			url:"/ajax/test02",
+			success:function(data){
+				console.log(data);
+				//json 형식의 문자열을 object 로 변환
+				var obj=JSON.parse(data);
+
+				// td 요소를 3개 만들어서 번호 이름 주소 출력후 
+				var td1=$("<td/>").text(obj.num);
+				var td2=$("<td/>").text(obj.name);
+				var td3=$("<td/>").text(obj.addr);
+				// tr 요소를 만들어서 td 요소 추가후 tbody 에 추가
+				$("<tr/>")
+				.append(td1)
+				.append(td2)
+				.append(td3)
+				.appendTo("tbody");
+			}
+		});
+	});	
+</script>	
+</body>
+</html>

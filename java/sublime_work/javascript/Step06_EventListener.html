@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step06_eventListener.html</title>
+</head>
+<body>
+<button onclick="send()">전송</button>
+<button id="sendBtn">전송2</button>
+<script>
+
+	var send=function(){
+		console.log("전송 버튼을 눌렀네요?");
+	};
+
+	document.querySelector("#sendBtn")
+	.addEventListener("click", function(){
+		console.log("전송2 버튼을 눌렀네요?");
+	});
+</script>	
+</body>
+</html>

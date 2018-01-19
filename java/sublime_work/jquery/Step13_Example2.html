@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step13_Example2.html</title>
+	<style>
+		.wrapper{
+			width: 300px;
+			height: 300px;
+			border: 1px solid red;
+			position: relative;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.wrapper img{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 300px;
+			height: 300px;
+		}
+		#myConsole{
+			text-align: center;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.nav{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<div class="wrapper">
+	<img src="images/image1.png"/>
+	<img src="images/image2.png"/>
+	<img src="images/image3.png"/>
+	<img src="images/image4.png"/>
+	<img src="images/image5.png"/>
+</div>
+<div class="nav">
+	<button id="playBtn">play</button>
+	<button id="pauseBtn">pause</button>
+</div>
+<p id="myConsole">0</p>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+
+	//현재 보고 있는 이미지의 인덱스값을 관리할 변수를 만들고 초기값 0 을 부여한다.
+	var currentIndex=0;
+
+	//이미지의 마지막 인덱스 값 
+	var lastIndex=$(".wrapper img").length-1; 
+	//뒤로 되감을 값 
+	var backValue=300*lastIndex;
+	//슬라이드를 멈출지 여부
+	var isStop=false;
+
+
+	$(".wrapper img").each(function(index){
+		// index 에 300 을 곱한값을 얻어낸다. 
+		var left = index*300;
+
+		$(this).css("left", left+"px");
+	});
+
+	//3초 마다 주기적으로 호출되는 함수 등록 
+	setInterval(function(){
+
+		//움직이지 말아야 한다면 
+		if(isStop){
+			return; //함수 종료 (리턴)
+		}
+
+		//만일 마지막 번째 인덱스라면 
+		if(currentIndex==lastIndex){
+			//현재 인덱스를 0으로 바꾸고 
+			currentIndex=0;
+			//left 값을 처음 상태로 되돌린다.
+			$(".wrapper img").animate({
+				left:"+="+backValue+"px"
+			}, 200);
+			$("#myConsole").text(currentIndex);
+			return;//함수 종료(리턴)
+		}
+
+		//이미지 전체를 왼쪽으로 300px 이동하기 
+		$(".wrapper img").animate({
+			left:"-=300px"
+		}, 600);
+		//현재 인덱스 1 증가 시키기 
+		currentIndex++;
+		$("#myConsole").text(currentIndex);
+	}, 3000);
+
+	//.wrapper 에 mouseover 이벤트가 일어 났을때 실행할 함수 등록 
+	$(".wrapper").on("mouseover", function(){
+		//움직이지 않아야 되는 상태로 바꾸기 
+		isStop=true;
+	});
+	//.wrapper 에 mouseout 이벤트가 일어 났을때 실행할 함수 등록 
+	$(".wrapper").on("mouseout", function(){
+		//움직여야 되는 상태로 바꾸기 
+		isStop=false;
+	});
+	//시작 버튼을 눌렀을때 
+	$("#playBtn").click(function(){
+		isStop=false;
+	});
+	//정지 버튼을 눌렀을때 
+	$("#pauseBtn").click(function(){
+		isStop=true;
+	});
+
+</script>	
+</body>
+</html>

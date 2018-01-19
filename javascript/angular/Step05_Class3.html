@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+<meta charset="UTF-8">
+<title>title</title>
+<link rel="stylesheet" href="css/bootstrap.css"/>
+<script src="js/angular.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<select ng-init="num='one'" ng-model="num">
+		<option ng-selected="true" value="one">1</option>
+		<option value="two">2</option>
+		<option value="three">3</option>
+	</select>
+	<p>{{num}}</p>
+	<select ng-init="btnColor='btn-primary'"" ng-model="btnColor">
+		<option ng-selected="true" value="btn-primary">파란색</option>
+		<option value="btn-info">하늘색</option>
+		<option value="btn-success">녹색</option>
+		<option value="btn-danger">빨간색</option>
+	</select>
+	<button class="btn" ng-class="btnColor">버튼</button>
+</div>	
+</body>
+</html>

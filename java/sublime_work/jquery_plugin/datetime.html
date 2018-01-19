@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>datetime.html</title>
+	<link rel="stylesheet" href="css/jquery.datetimepicker.min.css"/>
+</head>
+<body>
+<h3>호텔 예약하기</h3>
+<form action="insertAction" method="post">
+	<label for="name">이름</label>
+	<input type="text" id="name" name="name"/><br/>
+	<label for="date">날짜</label>
+	<input type="text" id="date" name="date"/><br/>
+	<label for="time">시간</label>
+	<input type="text" id="time" name="time"/><br/>
+	<button type="submit">예약</button>
+</form>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/jquery.datetimepicker.full.js"></script>
+<script>
+	//언어 설정 
+	$.datetimepicker.setLocale('ko');
+	//플러그인 동작 시키기 
+	$("#date").datetimepicker({
+		timepicker:false,
+		format:"Y.m.d"
+	});
+
+	$("#time").datetimepicker({
+		datepicker:false,
+		format:"H:i"
+	});
+</script>	
+</body>
+</html>

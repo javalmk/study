@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step07_loop2.html</title>
+</head>
+<body>
+<button id="one">0~9</button>
+<button id="two">1~10</button>
+<script>
+	//0~9 버튼을 눌렀을때 콘솔창에 0 부터 9 까지 출력해 보세요.
+	document.querySelector("#one")
+	.addEventListener("click", function(){
+		for(var i=0; i<10; i++){
+			console.log(i);
+		}
+	});
+
+	//1~10 버튼을 눌렀을때 콘솔창에 1 부터 10 까지 출력해 보세요.
+	document.querySelector("#two")
+	.addEventListener("click", function(){
+
+		for(var i=0; i<10; i++){
+			console.log(i+1);
+		}
+		
+	});
+
+</script>	
+</body>
+</html>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="file">
+	<!-- 자주 사용하는 sql 문을 미리 정의 해 놓기 -->
+	<sql id="fileColumns">
+		num,title,writer,saveFilename,filesize,viewCount,
+		TO_CHAR(regdate, 'YY.MM.DD HH24:MI') AS regdate
+	</sql>
+
+	<select id="getList" resultType="test.file.dto.FileDto"
+		parameterType="test.file.dto.FileDto">
+		SELECT *
+		FROM (SELECT result1.*,ROWNUM rnum
+			  FROM (SELECT <include refid="fileColumns"/>
+			  		FROM board_data 
+			  		<where>
+						<if test="writer != null">
+							OR writer LIKE '%'||#{writer}||'%'
+						</if>
+						<if test="title != null">
+							OR title LIKE '%'||#{title}||'%'
+						</if>
+					</where>	
+			  		ORDER BY num DESC) result1
+			  )
+		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
+	</select>
+	
+	<insert id="insert" parameterType="test.file.dto.FileDto">
+		INSERT INTO board_data
+		(num, title, writer, orgFilename, saveFilename, viewCount, regdate)
+		VALUES(board_data_seq.NEXTVAL, 
+		#{writer}, #{title}, #{content}, #{viewCount}, SYSDATE)
+	</insert>
+	
+	<update id="increaseViewCount" parameterType="int">
+		UPDATE board_cafe
+		SET viewCount=viewCount+1
+		WHERE num=#{num}
+	</update>
+	
+	<select id="getData" parameterType="int"
+	 	resultType="test.file.dto.FileDto">
+	 	SELECT result1.*
+	 	FROM
+		 	( SELECT <include refid="fileColumns"/>,
+		 	LEAD(num, 1, 0) OVER(ORDER BY num DESC) nextNum,
+		 	LAG(num, 1, 0) OVER(ORDER BY num DESC) prevNum
+		 	FROM board_cafe
+		 	<where>
+				<if test="writer != null">
+					OR writer LIKE '%'||#{writer}||'%'
+				</if>
+				<if test="title != null">
+					OR title LIKE '%'||#{title}||'%'
+				</if>
+				<if test="content != null">
+					OR content LIKE '%'||#{content}||'%'
+				</if>
+			</where>
+		 	ORDER BY num DESC ) result1
+	 	WHERE num=#{num}
+	 </select>
+	 
+	 <delete id="delete" parameterType="int">
+	 	DELETE FROM board_data
+	 	WHERE num=#{num}
+	 </delete>
+	 
+	 <update id="update" parameterType="test.file.dto.FileDto">
+	 	UPDATE board_data
+	 	SET title=#{title}, orgFilename=#{orgFilename}, saveFilename=#{saveFilename}, filesize=#{filesize}
+	 	WHERE num=#{num}
+	 </update>	
+		
+	 <select id="getCount" resultType="int" 
+	 		parameterType="test.file.dto.FileDto">
+		SELECT NVL(MAX(ROWNUM), 0) 
+		FROM board_data
+		<where>
+			<if test="writer != null">
+				OR writer LIKE '%'||#{writer}||'%'
+			</if>
+			<if test="title != null">
+				OR title LIKE '%'||#{title}||'%'
+			</if>
+		</where>	
+	 </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

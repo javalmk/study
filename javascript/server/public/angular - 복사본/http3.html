@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<title>/angular/http3.html</title>
+<script src="/js/angular.min.js"></script>
+<script>
+	var myApp=angular.module("myApp", []);
+	myApp.controller("ctrl1", function($scope, $http){
+		$scope.phones=[];
+		$scope.getPhones=function(){
+			$http({
+				method:"get",
+				url:"/angular/phones"
+			}).success(function(data){
+				// data 는 object 이다.
+				console.log(data);
+				// object 의 phones 라는 방에 있는 배열을 모델에 대입해 준다. (UI 자동 업데이트)
+				$scope.phones=data.phones;
+			});
+		};
+	});
+</script>
+</head>
+<body ng-controller="ctrl1">
+	<button ng-click="getPhones()">전화기 목록 받아오기</button>
+	<br/>
+	<table>
+		<thead>
+			<tr>
+				<th>이름</th>
+				<th>요약</th>
+				<th>가격</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="tmp in phones | filter:keyword | orderBy:orderValue">
+				<td>{{tmp.name}}</td>
+				<td>{{tmp.snippet}}</td>
+				<td ng-bind="tmp.price"></td>
+			</tr>
+		</tbody>
+	</table>
+	<br/>
+	<input ng-model="keyword" type="text" placeholder="검색어 입력..."/>
+	<br/>
+	<select ng-model="orderValue">
+		<option value="">정렬</option>
+		<option value="name">이름</option>
+		<option value="price">가격</option>
+	</select>
+</body>
+</html>

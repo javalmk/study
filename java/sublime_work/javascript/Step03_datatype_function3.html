@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step03_datatype_function3.html</title>
+</head>
+<body>
+<script>
+	var a=function(){
+		console.log("a 함수 호출됨");
+		return;
+	};
+	var b=function(){
+		console.log("b 함수 호출됨");
+		return 999;
+	};
+	var c=function(){
+		console.log("c 함수 호출됨");
+		return "김구라";
+	};
+	var d=function(){
+		console.log("d 함수 호출됨");
+		return {num:1, name:"김구라"};
+	};
+	var e=function(){
+		console.log("e 함수 호출됨");
+		var obj={num:2, name:"해골"};
+		return obj;
+	};
+	// array type 을 리턴하는 함수 
+	var getNames=function(){
+		var names=["김구라","해골","원숭이"];
+		return names;
+	};
+
+	//각각의 함수를 호출하고 return 되는 값을 변수에 담아보기
+	var result1=a();
+	var result2=b();
+	var result3=c();
+	var result4=d();
+	var result5=e();
+	// getNames() 를 호출해서 리턴되는 배열의 0번째방 문자열을 myName 이라는 변수에 담아 보세요. 
+	var result6=getNames();
+	var myName=result6[0];
+	
+</script>	
+</body>
+</html>

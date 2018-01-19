@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+<meta charset="UTF-8">
+<title>Step04_Style.html</title>
+<style>
+	.box{
+		width: 100px;
+		height: 100px;
+		background-color: #0f0;
+	}
+</style>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-init="mLeft=0">
+<div class="box" ng-style="{'margin-left':mLeft+'px'}"></div>
+<button ng-click="mLeft=mLeft+10">눌러보셈</button>	
+</body>
+</html>
+
+
+
+
+
+

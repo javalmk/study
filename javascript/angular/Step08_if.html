@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Step08_if.html</title>
+	<style>
+		img{ width: 300px; }
+	</style>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+<h3>ng-if 는 문서객체를 만들지 여부</h3>	
+<input type="checkbox" ng-model="isMake"/><br/>
+<img ng-if="isMake" src="images/image1.png"/><br/>
+<h3>ng-show 는 문서 객체를 보여줄지 여부</h3>
+<input type="checkbox" ng-model="isShow"/><br/>
+<img ng-show="isShow" src="images/image2.png"/>	
+</body>
+</html>

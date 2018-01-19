@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step08_Sample2.html</title>
+	<link rel="stylesheet" href="css/bootstrap.css"/>
+	<style>
+	.wrapper{
+		perspective: 1000px;
+		perspective-origin: 50% 50%;
+		border: 1px solid red;
+		height: 400px;
+	}
+	.carousel{
+		transform-style: preserve-3d;
+		position: relative;
+		width: 100%;
+		height: 400px;
+	}
+	
+	/* transition 효과를 동적으로 적용하기 위해 */
+	.transition{
+		transition: transform 0.4s ease-out;
+	}
+
+	.carousel > div{
+		position: absolute; /* 8개의 div 겹치기*/
+		width: 100%;
+		height: 400px;
+		border: 1px solid green;
+		/* 셈플 페이지 관련 */
+		font-size: 50px;
+		text-align: center;
+		font-weight: bold;
+	}
+	/* 여기에 있던 css 를 javascript 로 대체 해 보세요. */
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="wrapper">
+		<div class="carousel">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+		</div>
+	</div>
+</div>	
+<div class="container">
+	<ul class="pager">
+		<li><a href="javascript:" id="prev">이전</a></li>
+		<li><a href="javascript:" id="next">다음</a></li>
+	</ul>
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	/* 
+		8 개의 div 를 8 각형 형태로 배치해 보세요. 
+		
+		- hint 
+
+		.css("transform","rotateY( deg) translateZ( px)")
+	*/
+
+	// carousel 의 각형 
+	var n=8; 
+	var angle=0;
+	var tz=0;
+	// carousel 의 회전 값을 저장할 변수 
+	var rY=0;
+
+	initCarousel(); // carousel 배치 
+
+	// carousel 을 배치하는 함수 
+	function initCarousel(){
+		// transition 효과를 제거 
+		$(".carousel").removeClass("transition");
+
+		// carousel 의 폭
+		var width=$(".carousel").width();
+
+		//회전할 각도와 z 축 평행 이동 값을 가지고 있는 object 
+		var obj = getAngleNtz(n, width);
+
+		angle = obj.angle;
+		tz = obj.tz;
+
+		// .carousel 을 tz 만큼 뒤로 밀기
+		$(".carousel").css("transform","translateZ(-"+tz+"px)");
+
+		for(var i=0; i<n; i++){
+			// y 축으로 회전할 값을 계산한다. 
+			var tmp = angle*i;
+
+			$(".carousel > div")
+			.eq(i) //i번째 요소 
+			.css("transform","rotateY("+tmp+"deg) translateZ("+tz+"px)");
+
+		}
+	}
+
+	// resize 이벤트가 일어 났을때 다시 배치 
+	$(window).resize(function(){
+		//다시 배치하고 
+		initCarousel();
+		//rY 값을 반영한다. 
+		rotateY();
+	});
+
+	$("#prev").click(function(){
+		//transition 효과를 주기 위해
+		$(".carousel").addClass("transition");
+		rY += angle;
+		rotateY();
+	});
+	$("#next").click(function(){
+		//transition 효과를 주기 위해
+		$(".carousel").addClass("transition");
+		rY -= angle;
+		rotateY();
+	});
+	// rY 값을 carousel 에 반영하는 함수 
+	function rotateY(){
+		$(".carousel").css("transform","translateZ(-"+tz+"px) rotateY("+rY+"deg)");
+	}
+	
+  //n 각형의 폭을 함수에 전달하면 div 를 배치할때 rotateY 값과 translateZ 가 Object 로 리턴되는 함수 
+  function getAngleNtz(n, width) {
+    var angle = Math.round(360 / n);
+    var tz = Math.round((width / 2) / Math.tan((angle * Math.PI) / (2 * 180)));
+    var obj = {
+      angle: angle,
+      tz: tz
+    };
+    return obj;
+  }			
+</script>	
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Step14_Scroll.html</title>
+<style>
+	.spacer{
+		height: 500px;
+		background-color: #cecece;
+	}
+	.console{
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0; 
+	}
+	.console p{
+		background-color: #000;
+		color: #fff;
+		font-size: 25px;
+	}
+</style>
+</head>
+<body>
+<div class="console">
+	<p id="sTop">0</p>
+	<p id="wHeight"></p>
+	<p id="dHeight"></p>
+</div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<script src="js/jquery-3.2.1.js"></script>	
+<script>
+	//window 에 scroll 이벤트가 일어 났을때 실행할 함수 등록
+	$(window).on("scroll", function(){
+		console.log("scroll!");
+
+		//위쪽으로 스크롤된 길이 구하기 
+		var scrollTop=$(window).scrollTop();
+		//window 의 높이 구하기 
+		var windowHeight=$(window).height();
+		//document 의 높이 구하기 
+		var documentHeight=$(document).height();
+
+		//출력해보기
+		$("#sTop").text("scrollTop:"+scrollTop);
+		$("#wHeight").text("windowHeight:"+windowHeight);
+		$("#dHeight").text("documentHeight:"+documentHeight);
+
+		//만일 바닥 이라면 "바닥이네?" 라는 알림창을 띄워 보세요.
+
+		var isBottom = documentHeight == scrollTop+windowHeight;
+		if(isBottom){
+			//alert("바닥이네?");
+			$("<div/>").addClass("spacer").appendTo("body");
+		}
+
+	});
+</script>
+</body>
+</html>

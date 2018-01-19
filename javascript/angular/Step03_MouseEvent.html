@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Step03_MouseEvent.html</title>
+	<style>
+		.box{
+			width: 300px;
+			height: 300px;
+			background-color: #cecece;
+		}
+	</style>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+<div class="box"
+	ng-mouseenter="eventName='mouseenter!'"
+	ng-mouseleave="eventName='mouseleave!'"
+	ng-mousemove=""
+	ng-mousedown="eventName='mousedown!'"
+	ng-mouseup="eventName='mouseup!'"></div>
+<p> 이벤트 명 : <strong>{{eventName}}</strong></p>	
+</body>
+</html>

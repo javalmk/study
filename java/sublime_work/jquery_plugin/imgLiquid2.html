@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>imgLiquid2.html</title>
+	<link rel="stylesheet" href="css/bootstrap.css"/>
+	<style>
+		.image-panel{
+			height: 300px;
+		}
+		
+		/* xs 영역에서 이미지의 높이 줄이기 */
+		@media(max-width: 767px){
+			.image-panel{
+				height: 200px;
+			}
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<h3>bootstrap 과 imgLiquid 플러그인</h3>
+	<div class="row">
+		<div class="col-xs-3">
+			<div class="image-panel">
+				<img src="images/1.jpg"/>
+			</div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+		</div>
+		<div class="col-xs-3">
+			<div class="image-panel">
+				<img src="images/2.jpg"/>
+			</div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+		</div>
+		<div class="col-xs-3">
+			<div class="image-panel">
+				<img src="images/3.jpg"/>
+			</div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+		</div>
+		<div class="col-xs-3">
+			<div class="image-panel">
+				<img src="images/4.jpg"/>
+			</div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+		</div>
+	</div>
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/imgLiquid.js"></script>
+<script>
+	$(".image-panel").imgLiquid();
+</script>	
+</body>
+</html>

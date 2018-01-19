@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step04_if3.html</title>
+</head>
+<body>
+<p></p>
+<button onclick="input()">문자열 입력받기</button>
+<script>
+	var input=function(){
+		//prompt 를 통해서 입력 받은 문자열을 p 요소의 innerText 로 출력 해 보세요.
+
+		//1. 문자열을 입력 받는다.
+		var msg=prompt("문자열을 입력하세요.");
+		//2. 입력 받은 문자열을 p 요소에 출력한다. 
+		document.querySelectorAll("p")[0].innerText = msg;
+	};
+</script>	
+</body>
+</html>

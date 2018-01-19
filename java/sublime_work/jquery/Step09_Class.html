@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step09_Class.html</title>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+<button id="addBtn">클래스 추가</button>
+<button id="removeBtn">클래스 제거</button>
+<button id="toggleBtn">클래스 토글</button>
+<div id="myDiv"></div>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	//버튼을 클릭했을때 실행할 함수 등록 
+	//$("#addBtn").on("click", function(){});
+	$("#addBtn").click(function(){
+		//id 가 myDiv 인 요소에 box 클래스 추가 
+		$("#myDiv").addClass("box");
+	});
+
+	$("#removeBtn").click(function(){
+		//id 가 myDiv 인 요소에 box 클래스 제거 
+		$("#myDiv").removeClass("box");
+	});
+	$("#toggleBtn").click(function(){
+		//id 가 myDiv 인 요소에 box 클래스 토글 
+		$("#myDiv").toggleClass("box");
+	});
+</script>	
+</body>
+</html>

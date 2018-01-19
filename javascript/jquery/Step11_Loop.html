@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step11_Loop.html</title>
+</head>
+<body>
+<button id="printBtn">출력</button>
+<button id="printBtn2">출력2</button>
+<div>div1</div>
+<div>div2</div>
+<div>div3</div>
+<div>div4</div>
+<div>div5</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	var names=["김구라","해골","원숭이","주뎅이","덩어리"];
+
+	//출력 버튼을 눌렀을때 실행할 함수 등록 
+	$("#printBtn").click(function(){
+		$("div").each(function(index, item){
+			/*
+				선택된 문서객체의 갯수 만큼 함수가 호출되고
+				index 와 item 이 함수의 인자로 전달된다.
+			*/
+			$(item).text(names[index]);
+		});
+	});
+
+	//출력 버튼을 눌렀을때 실행할 함수 등록 
+	$("#printBtn2").click(function(){
+		$("div").each(function(index){
+			// this 는 선택된 div 의 참조값을 순서대로 참조할 수 있다. 
+			$(this).text(names[index]);
+		});
+	});
+</script>
+</body>
+</html>

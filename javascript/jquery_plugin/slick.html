@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>slick.html</title>
+	<!-- 플러그인에서 제공해주는 css 로딩 -->
+	<link rel="stylesheet" href="css/slick.css"/>
+	<link rel="stylesheet" href="css/slick-theme.css"/>
+	<style>
+		.my-slick > div{
+			height: 300px;
+			background-color: #cecece;
+		}
+	</style>
+</head>
+<body>
+<div class="my-slick">
+	<div>div1</div>
+	<div>div2</div>
+	<div>div3</div>
+	<div>div4</div>
+	<div>div5</div>
+</div>
+<!-- jquery 로딩 -->
+<script src="js/jquery-3.2.1.js"></script>
+<!-- jquery slick 플러그인 로딩 -->
+<script src="js/slick.js"></script>
+<script>
+	$(".my-slick").slick({
+		dots:true,
+		slidesToShow:3
+	});
+</script>	
+</body>
+</html>

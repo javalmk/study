@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step12_Etc.html</title>
+	<script src="js/jquery-3.2.1.js"></script>
+	<script>
+
+		//문서 로딩이 완료 되었을때 실행할 함수 등록
+		$(document).ready(function(){
+			//여기는 문서 로딩이 완료 되었을때 실행순서가 들어온다.
+			$("#myBtn").on("click", function(){
+				alert("버튼을 눌렀네요?");
+			});
+
+			$("div").text("테스트!");
+		});
+
+		//$(document).ready(function(){});
+		//위와 아래의 기능은 같다 
+		//$(function(){});
+
+	</script>	
+</head>
+<body>
+<button id="myBtn">눌러보셈</button>
+<div>div1</div>
+<div>div2</div>
+<div>div3</div>
+</body>
+</html>

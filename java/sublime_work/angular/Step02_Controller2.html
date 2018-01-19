@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Step02_Controller2.html</title>
+	<script src="js/angular.min.js"></script>
+	<script>
+		var myApp=angular.module("myApp",[]);
+		myApp.controller("ctrl1", function($scope){
+			//send 라는 이름의 모델에 function type 대입하기 
+			$scope.send=function(){
+				console.log("하나");
+				console.log("두울");
+				console.log("세엣");
+			};
+
+			$scope.names=["김구라","해골","원숭이"];
+		});
+	</script>
+</head>
+<body ng-controller="ctrl1">
+	<button ng-click="send()">전송</button>
+	<ul>
+		<li ng-repeat="tmp in names">{{tmp}}</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step02_Glyphicon.html</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<style>	
+		.test span{
+			font-size: 50px;
+			color: red;
+		}		
+	</style>
+</head>
+<body>
+<div class="container">
+	<h3>glyphicon 사용하기</h3>
+	<div class="test">
+		<span>A</span>
+		<span class="glyphicon glyphicon-trash"></span>
+		<span class="glyphicon glyphicon-music"></span>
+	</div>
+	<h3>anchor 에 glyphicon 사용하기</h3>
+	<a href="#"><span class="glyphicon glyphicon-search"></span><span class="sr-only">검색</span></a>
+
+	<h3>버튼에 텍스트와 함께 출력</h3>
+	<button class="btn btn-success">전송 <span class="glyphicon glyphicon-send"></span></button>
+	<button class="btn btn-warning">취소 <i class="glyphicon glyphicon-remove"></i></button>
+</div>	
+</body>
+</html>

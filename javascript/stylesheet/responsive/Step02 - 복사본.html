@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step02.html</title>
+	<style>
+		/* width 와 height 에 padding 과 border 가 포함 될수 있도록 설정  */
+		*{
+			box-sizing: border-box;
+		}
+		.container{
+			margin: 0 auto;
+		}
+		.col{
+			float: left;
+			border: 1px solid red;
+			width: 100%;
+		}
+		.col img{
+			/* 최대 width 가 부모 요소의 크기를 넘지 않도록 */
+			max-width: 100%;
+		}
+		@media(min-width: 768px){
+			.container{
+				width: 750px;
+			}
+			.col{
+				width: 50%;
+			}
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="col">
+		<img src="../basic/images/top01.jpg"/>
+	</div>
+	<div class="col">
+		<img src="../basic/images/top02.jpg"/>
+	</div>
+</div>	
+</body>
+</html>

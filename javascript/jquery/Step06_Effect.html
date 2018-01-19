@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step06_Effect.html</title>
+	<style>
+		.wrapper img{
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+<button id="hideBtn">숨기기</button>
+<button id="showBtn">보이기</button>
+<button id="toggleBtn">토글</button>
+<div class="wrapper">
+	<img src="images/image1.png" id="one"/>
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	$("#hideBtn").click(function(){
+		//$("#one").css("display","none");
+		$("#one").hide(); //숨기기
+	});
+
+	$("#showBtn").click(function(){
+		//$("#one").css("display","inline");
+		$("#one").show(); //보이기
+	});
+
+	$("#toggleBtn").click(function(){
+		$("#one").toggle(); //토글 
+	});
+</script>	
+</body>
+</html>

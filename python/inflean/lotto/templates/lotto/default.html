@@ -1,0 +1,27 @@
+<!-- lotto/template/lotto/default.html -->
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="ko">
+<head>
+  <title>My Little Lotto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="{% static 'css/lotto.css'%}">
+  <link href="//fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+</head>
+
+<body>
+  <div class="page-header">
+  <h1><a href="{% url 'lotto:index'%}">My Lotto Page</a></h1>
+  <a href="{% url 'lotto:new_lotto' %}"><span class="glyphicon glyphicon-plus btn btn-default"></span></a></h1>
+  </div>
+  <div class="container lotto">
+    {% for lotto in lottos%}
+    <h2><a href="{% url 'lotto:detail' lottokey=lotto.pk %}">{{lotto.text}}</a></h2>
+    <p> last update: {{lotto.update_date}} by {{lotto.name}}</p>
+    <p> {{lotto.lottos|linebreaksbr}}</p>
+    {% endfor %}
+  </div>
+</body>
+</html>

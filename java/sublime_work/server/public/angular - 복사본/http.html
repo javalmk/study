@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<title>/angular/http.html</title>
+<!-- 절대 경로를 이용해서 angular js 로딩 -->
+<script src="/js/angular.min.js"></script>
+<script>
+	var myApp=angular.module("myApp",[]);
+	//서버와의 ajax 통신을 하기 위해서는 $http 서비스가 필요하다.
+	myApp.controller("ctrl1", function($scope, $http){
+		//전송 버튼을 눌렀을때 실행되는 함수 
+		$scope.send=function(){
+			// post 방식 ajax 요청 하기 
+			$http({
+				method:"post",
+				url:"/ajax/test01",
+				data:{msg: $scope.msg},
+			}).success(function(data){
+				//data 를 콘솔에 출력해 보기 
+				console.log(data);// data 는 서버가 응답한 문자열 
+			});
+		};
+	});
+</script>
+</head>
+<body ng-controller="ctrl1">
+<input type="text" ng-model="msg"/>
+<button ng-click="send()">전송</button>	
+</body>
+
+</html>

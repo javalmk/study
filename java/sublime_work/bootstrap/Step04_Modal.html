@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Step04_Modal.html</title>
+<link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<div class="container">
+	<button class="btn btn-info" 
+	 data-toggle="modal"
+	 data-target="#myModal">눌러보셈</button>
+	 <button class="btn btn-primary" id="myBtn">눌러보셈2</button>
+</div>	
+<div class="modal fade" id="myModal">
+	<!-- modal-lg  | default | modal-sm -->	
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">모달 닫기</span></button>
+        <h4 class="modal-title">모달의 제목</h4>
+      </div>
+      <div class="modal-body">
+        <p>모달의 내용 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit possimus velit dicta ex, esse suscipit amet ratione cum rerum aperiam laudantium sint a explicabo earum pariatur dolores doloribus dolorum sapiente.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/bootstrap.js"></script>	
+<script>
+	// 모달에 옵션 전달하기 
+	$("#myModal").modal({
+		backdrop:false, // backdrop 표시 여부 
+		show:false // 이 javascript 가 수행될때 모달이 뜨지않게
+	});
+
+	//특정 버튼을 눌렀을때 
+	$("#myBtn").click(function(){
+		//모달 보이게 하기 
+		$("#myModal").modal("show");
+	});
+
+	/*
+		Modal 에서 발생하는 이벤트 명
+
+		1. "show.bs.modal"
+		2. "shown.bs.modal"
+		3. "hide.bs.modal"
+		4. "hidden.bs.modal" 
+	*/
+
+	//모달이 완전히 보여 졌을때 실행할 함수 등록 
+	$("#myModal").on("shown.bs.modal", function(){});
+	//모달이 완전히 숨겨 졌을때 실행할 함수 등록 
+	$("#myModal").on("hidden.bs.modal", function(){});
+</script>
+</body>
+</html>

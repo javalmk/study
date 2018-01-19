@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+<meta charset="UTF-8">
+<title>Step07_Form2.html</title>
+<link rel="stylesheet" href="css/bootstrap.css"/>
+<script src="js/angular.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<h3>form validation 테스트</h3>
+	<form action="signup" name="myForm" novalidate>
+		<div class="form-group has-feedback"
+			ng-class="{'has-success':myForm.id.$valid ,'has-error':myForm.id.$invalid && myForm.id.$dirty}">
+			<label class="control-label" for="id">아이디</label>
+			<input class="form-control" id="id" name="id" type="text" ng-model="id" 
+			ng-required="true"
+			ng-pattern="/^[a-zA-Z]+$/"/>
+			<p ng-show="myForm.id.$error.required && myForm.id.$dirty" class="help-block">반드시 입력하세요</p>
+
+			<p ng-show="myForm.id.$error.pattern && myForm.id.$dirty" class="help-block">영문자만 입력하세요</p>
+			
+			<span class="form-control-feedback glyphicon glyphicon-ok" ng-show="myForm.id.$valid"></span>
+			<span class="form-control-feedback glyphicon glyphicon-remove" ng-show="myForm.id.$invalid && myForm.id.$dirty"></span>
+		</div>
+		<div class="form-group has-feedback"
+			ng-class="{'has-success':myForm.nick.$valid ,'has-error':myForm.nick.$invalid && myForm.nick.$dirty}">
+			<label class="control-label" for="nick">별칭</label>
+			<input type="text" class="form-control" id="nick" name="nick" ng-model="nick"
+			ng-required="true"
+			ng-minlength="2"
+			ng-maxlength="5"
+			ng-pattern="/^[가-힝]+$/"/>
+			<p ng-show="myForm.nick.$error.required && myForm.nick.$dirty" class="help-block">반드시 입력 해야 합니다.</p>
+			<p ng-show="myForm.nick.$error.minlength" class="help-block">최소 2글자 이상 입력</p>
+			<p ng-show="myForm.nick.$error.maxlength" class="help-block">최대 5글자 까지 입력</p>
+			<p ng-show="myForm.nick.$error.pattern" class="help-block">한글만 가능합니다.</p>
+			<span class="form-control-feedback glyphicon glyphicon-ok" ng-show="myForm.nick.$valid"></span>
+			<span class="form-control-feedback glyphicon glyphicon-remove" ng-show="myForm.nick.$invalid && myForm.nick.$dirty"></span>
+			<!--
+				[ 별칭 검증 조건 ]
+				1. 반드시 입력 해야함 (required)
+				2. 최소 2글자 (minlength)
+				3. 최대 5글자 (maxlength)
+				4. 한글만 가능함 (정규표현식)
+			 -->
+		</div>
+		<!-- 폼이 유효하지 않으면 button 사용 불가 하게 -->
+		<button ng-disabled="myForm.$invalid" class="btn btn-primary" type="submit">가입</button>
+	</form>
+	<p>myForm.id.$dirty=<strong>{{myForm.id.$dirty}}</strong></p>
+	<p>myForm.id.$pristine=<strong>{{myForm.id.$pristine}}</strong></p>
+</div>	
+</body>
+</html>

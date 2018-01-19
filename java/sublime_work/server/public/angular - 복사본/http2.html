@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<title>/angular/http2.html</title>
+<script src="/js/angular.min.js"></script>
+<script>
+	var myApp=angular.module("myApp", []);
+	myApp.controller("ctrl1", function($scope, $http){
+		//formData 라는 모델 만들기 
+		$scope.formData={};
+		//폼 전송 이벤트가 발생했을때 호출되는 함수
+		$scope.send=function($event){
+			//alert("전송!");
+
+			//기본 동작을 막아서 폼 전송이 안되도록 한다. 
+			$event.preventDefault();
+			// $http 서비스를 이용해서 ajax 전송한다.
+			$http({
+				method:"post",
+				url:"/angular/insert",
+				data:$scope.formData
+			}).success(function(data){
+				console.log(data);
+			});
+		};
+	});
+</script>
+</head>
+<body ng-controller="ctrl1">
+	<h3>폼 테스트</h3>
+	<!-- 폼 전송 이벤트 발생 했을때 send 함수 호출 -->
+	<form ng-submit="send($event)" action="testAction" method="post">
+		<label for="name">이름</label>
+		<input ng-model="formData.name" type="text" name="name" id="name"/>
+		<label for="addr">주소</label>
+		<input ng-model="formData.addr" type="text" name="addr" id="addr"/>
+		<button type="submit">전송</button>
+	</form>
+	<p>{{formData}}</p>
+</body>
+</html>
+
+
+
+

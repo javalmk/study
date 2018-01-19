@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step06_PseudoClass.html</title>
+	<style>
+		/*
+			pseudo class 선택자 => 가상클래스 선택자 
+		*/
+
+		.box{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+		}
+		/* hover 가상 클래스 선택 */
+		.box:hover{
+			background-color: yellow;
+		}
+		/* input 요소 이면서 focus 가상 클래스 선택*/
+		input:focus{
+			background-color: yellow;
+		}
+		/* button 요소 이면서 focus 가상 클래스 선택*/
+		button:focus{
+			color:red;
+		}
+		/* button 요소 이면서 active 가상 클래스 선택 */
+		button:active{
+			width: 100px;
+			height: 100px;
+		}
+		a{
+			/* 밑줄 제거 */
+			text-decoration: none; 
+		}
+		a:hover{
+			/* 밑줄 추가*/
+			text-decoration: underline;
+		}
+		/* 아직 방문하지 않은 링크 가상 선택자 */
+		a:link{
+			color: #000;
+		}
+		/* 이미 방문한 링크 가상 선택자 */
+		a:visited{
+			color: green;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="box">box1</div>
+	<div class="box">box2</div>
+	<div class="box">box3</div>
+	<input type="text"/>
+	<input type="text"/><br/>
+	<button>버튼</button>
+	<button>버튼</button><br/>
+	<a href="http://study.kimgura.net">kimgura</a>
+	<a href="http://daum.net">daum</a>
+	<a href="http://gmarket.co.kr">gmarket</a>
+	<br/>
+</div>	
+</body>
+</html>

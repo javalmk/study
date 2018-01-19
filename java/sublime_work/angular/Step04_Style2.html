@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<title>Step04_Style2.html</title>
+<style>
+	.box{
+		width: 100px;
+		height: 100px;
+		border: 1px solid red;
+	}
+</style>
+<script src="js/angular.min.js"></script>
+<script>
+	var myApp=angular.module("myApp", []);
+	myApp.controller("ctrl1", function($scope){
+
+	});
+</script>
+</head>
+<body ng-controller="ctrl1">
+<div class="box"
+	ng-mousedown="color1='yellow'"
+	ng-mouseup="color1='white'"
+	ng-style="{'background-color': color1}">div1</div>
+<div class="box"
+	ng-mousedown="color2='yellow'"
+	ng-mouseup="color2='white'"
+	ng-style="{'background-color': color2}">div2</div>
+</body>
+</html>

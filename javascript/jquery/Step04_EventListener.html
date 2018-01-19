@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step04_EventListener.html</title>
+	<style>
+		ul > li:hover{
+			background-color: yellow;
+			/* 마우스의 모양을 포인터로 설정 */
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+
+<button id="myBtn">눌러보셈</button>
+
+<ul>
+	<li>li1</li>
+	<li>li2</li>
+	<li>li3</li>
+	<li>li4</li>
+	<li>li5</li>
+</ul>
+
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	// id 가 myBtn 인 곳에 click 이벤트가 일어났을때 실행할 함수 등록 
+	$("#myBtn").on("click", function(){
+		alert("버튼을 눌렀네?");
+	});
+
+	$("ul > li").on("click", function(){
+		// this 는 click 이벤트가 일어난 요소의 참조값을 가리킨다. 
+		console.log(this);
+		// click 이벤트가 일어난 요소에 jquery 동작 적용
+		$(this).css("color","red").text("clicked!");
+	});
+</script>
+</body>
+</html>

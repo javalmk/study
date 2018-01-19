@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step10_RegExp3.html</title>
+</head>
+<body>
+<p>영문자 소문자 5개 이상의 문자열 입력</p>
+<input type="text" id="inputMsg"/>
+<button id="matchBtn">매칭여부</button>
+<button id="firstBtn">first</button>
+<button id="allBtn">all</button>
+<button id="clearBtn">clear</button>
+<ul id="list">
+	
+</ul>	
+<script src="../jquery/js/jquery-3.2.1.js"></script>
+<script>
+	// 문자열 5개를 찾을 정규 표현식
+	var firstReg=/^[a-z]{5,}$/;
+	// 문자열 5개를 모두 찾을 정규 표현식
+	var allReg=/...../g;
+
+	$("#matchBtn").click(function(){
+		var msg=$("#inputMsg").val();
+		//정규 표현식에 매칭된다면 
+		if(firstReg.test(msg)){
+			$("<li/>").text("true").appendTo("#list");
+		}else{//매칭되지 않는다면 
+			$("<li/>").text("false").appendTo("#list");
+		}
+	});
+
+
+	$("#firstBtn").click(function(){
+		//입력한 문자열 읽어오기
+		var msg=$("#inputMsg").val();
+		//정규 표현식으로 first matching 찾기
+		var result=firstReg.exec(msg);
+		if(result != null){
+			//console.log(result);
+			$("<li/>").text(result[0]).appendTo("#list");
+		}else{
+			//console.log("null 입니다.");
+			$("<li/>").text("null 입니다.").appendTo("#list");
+		}
+	});
+
+	$("#allBtn").click(function(){
+		//입력한 문자열 읽어오기
+		var msg=$("#inputMsg").val();
+		//반복문 돌면서 문자열 찾아내기
+		while(true){
+			//정규 표현식에 매칭되는 문자열 찾기
+			var result=allReg.exec(msg);
+			if(result == null){
+				//반복문 loop 탈출하기 
+				break;
+			}
+			$("<li/>").text(result[0]).appendTo("#list");
+		}
+	});
+
+	$("#clearBtn").click(function(){
+		//input 요소에 입력한 문자열 삭제
+		$("#inputMsg").val("");
+		// li 요소 삭제
+		$("#list li").remove();
+	});
+</script>	
+</body>
+</html>

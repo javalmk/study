@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step09_json.html</title>
+</head>
+<body>
+<div>
+	<button id="printBtn">정보 출력하기</button>
+	<p>번호 : <strong id="num"></strong></p>
+	<p>이름 : <strong id="name"></strong></p>
+	<h3>취미</h3>
+	<ul id="hobbyList">
+
+	</ul>
+</div>
+<script src="../jquery/js/jquery-3.2.1.js"></script>
+<script>
+	/*
+		[ JSON ] 
+
+		Java Script Object Notation (자바스크립트 객체 표기법 )
+
+		Data type
+
+		1. string
+		
+		{"name":"김구라"}
+
+		2. number
+
+		{"num":1, "weight":70.5}
+
+		3. boolean
+
+		{"isMan":true, "isWait":false}
+
+		4. object
+		
+		{}
+
+		5. array
+		
+		[]
+
+		6. null
+
+		{"phone":null}
+	*/
+
+	var info = '{"num":1,"name":"김구라","hobby":["piano","programming","billiard"]}';
+
+	//정보 출력 버튼을 눌렀을 때 위의 info 변수에 들어 있는 문자열을 이용해서 정보를 출력 해 보세요.
+
+	$("#printBtn").click(function(){
+		//json 문자열을 object 로 바꾸기
+		var obj=JSON.parse(info);
+		//번호와 이름 출력하기 
+		$("#num").text(obj.num);
+		$("#name").text(obj.name);
+
+		for(var i=0; i<obj.hobby.length; i++){
+			$("<li/>")
+			.text(obj.hobby[i])
+			.appendTo("#hobbyList");
+		}
+	});
+</script>	
+</body>
+</html>

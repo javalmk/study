@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step03_3dTransform.html</title>
+	<style>
+		/* 3d 공간 정의하기 */
+		.wrapper{
+			/* 컨텐츠와 내 시선 사이의 거리  */
+			perspective: 500px;
+			/* 시선의 위치(원점) */
+			perspective-origin: 50% 50%;
+			border: 1px solid blue;
+		}
+		/* 3d transform 을 하겠다는 설정 */
+		.target{
+			transform-style: preserve-3d;
+			/* x, y, z 축이 교차하는 원점 설정 */
+			transform-origin: 50% 50%;
+			/* div 의 폭 지정하고 가운데 정렬 */
+			width: 200px;
+			margin: 0 auto;
+			border: 1px solid green;
+			/* transition 효과 주기 */
+			transition: transform 0.4s ease-out;
+		}
+		.target img{
+			max-width: 100%;
+		}
+		#one:hover{
+			transform: rotateX(45deg);
+		}
+		#two:hover{
+			transform: rotateY(45deg);
+		}
+		#three:hover{
+			transform: rotateZ(45deg);
+		}
+		#four:hover{
+			transform: translateZ(100px);
+		}
+	</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="target" id="one">
+		<img src="images/image1.png"/>
+	</div>
+</div>
+
+<div class="wrapper">
+	<div class="target" id="two">
+		<img src="images/image2.png"/>
+	</div>
+</div>
+
+<div class="wrapper">
+	<div class="target" id="three">
+		<img src="images/image3.png"/>
+	</div>
+</div>	
+
+<div class="wrapper">
+	<div class="target" id="four">
+		<img src="images/image4.png"/>
+	</div>
+</div>		
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<title>Step10_AnimateModule.html</title>
+<style>
+	/* 클래스 명이 my-ani 를 가지고 있는 요소가 추가 될때 적용할 애니메이션 */
+	.my-ani.ng-enter{
+		animation: myAni 1s ease-out;
+	}
+	/* 클래스 명이 my-ani 를 가지고 있는 요소가 제거 될때 적용할 애니메이션 */
+	.my-ani.ng-leave{
+		animation: myAni2 1s ease-out;
+	}
+
+	@keyframes myAni{
+		0%{
+			transform: scale(0.1);
+		}
+		100%{
+			transform: scale(1.0);
+		}
+	}
+
+	@keyframes myAni2{
+		0%{
+			transform: scale(1.0);
+		}
+		100%{
+			transform: scale(0.1);
+		}
+	}
+</style>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-animate.min.js"></script>
+<script>
+	var myApp=angular.module("myApp", ["ngAnimate"]);
+	myApp.controller("ctrl1", function($scope){
+		$scope.msgList=[{msg:"하나"},{msg:"두울"}];
+		//전송 버튼을 눌렀을때 호출되는 함수 
+		$scope.send=function(){
+			//배열에 object 추가 하기 
+			$scope.msgList.push({msg:$scope.msg});
+			//입력한 문자열 삭제
+			$scope.msg="";
+		};
+	});
+</script>
+</head>
+<body ng-controller="ctrl1">
+<input type="text" ng-model="msg"/>
+<button ng-click="send()">전송</button>
+<ul>
+	<li class="my-ani" ng-repeat="tmp in msgList">{{tmp.msg}}</li>
+</ul>
+<input type="checkbox" ng-model="isMake"/><br/>
+<img class="my-ani" ng-if="isMake" src="images/image1.png" width="200"/>	
+</body>
+</html>
+
+
+
+

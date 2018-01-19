@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step02_Transition2.html</title>
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: #0f0;
+			border: 1px solid red;
+			transition: margin-left 0.5s linear;
+		}
+	</style>
+</head>
+<body>
+<div class="box"></div>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	/*
+		박스를 클릭했을때 왼쪽 마진을 100px 씩 증가 시키기 
+	*/
+	var mLeft=0;
+
+	$(".box").click(function(){
+		mLeft += 100;
+		// css margin-left 를 100px 씩 증가 시키기 
+		$(this).css("margin-left", mLeft+"px");
+	});
+</script>	
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step08_example.html</title>
+</head>
+<body>
+<input type="text" id="inputMsg"/>
+<button id="sendBtn">전송</button>
+<ul id="msgList">
+	
+</ul>
+<script>
+
+	//카운트를 셀 변수 
+	var count=0;
+
+	document.querySelector("#sendBtn")
+	.addEventListener("click", function(){
+		printMsg();
+	});
+
+	document.querySelector("#inputMsg")
+	.addEventListener("keydown", function(event){
+		console.log(event.keyCode);
+
+		if(event.keyCode == 13){ //엔터키를 눌렀을때 
+			printMsg();	
+		}
+	});
+
+	var printMsg=function(){
+		//카운트 증가 시키기 
+		count++;
+
+		//1. 입력한 내용 읽어오기
+		var msg=document.querySelector("#inputMsg").value;
+		//2. li 요소를 만들어서 
+		var li=document.createElement("li");
+		//3. innerText 로 출력하고
+		li.innerText=count+" : "+msg;
+		//4. ul 에 append 하기 
+		document.querySelector("#msgList").prepend(li);
+
+		document.querySelector("#inputMsg").value="";
+	};
+
+</script>	
+</body>
+</html>

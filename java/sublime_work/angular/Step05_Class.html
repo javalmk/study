@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="UTF-8">
+<title>Step05_Class.html</title>
+<style>
+	.box{
+		width: 100px;
+		height: 100px;
+		background-color: #0f0;
+	}
+</style>
+<script src="js/angular.min.js"></script>
+<script>
+	var myApp=angular.module("myApp", []);
+	myApp.controller("ctrl1", function($scope){
+
+	});
+</script>
+</head>
+<body ng-controller="ctrl1">
+<button ng-click="isBox=true">눌러보셈</button>
+<button ng-click="isBox=false">눌러보셈2</button>
+<input type="checkbox" ng-model="isBox"/>
+<div ng-class="{box:isBox}"></div>	
+</body>
+</html>

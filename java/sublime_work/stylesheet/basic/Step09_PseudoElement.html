@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step09_PseudoElement.html</title>
+	<style>
+		/* 가상 요소 선택자 => 첫번째 글자 */
+		p::first-letter{
+			font-weight: bold;
+			color: red;
+		}
+		/* 가상 요소 선택자 => 첫번째 라인*/
+		#one::first-line{
+			background-color: yellow;
+		}
+		.quote::before{
+			content:"'";
+			color:red;
+		}
+		.quote::after{
+			content:"'";
+			color:red;
+		}
+	</style>
+</head>
+<body>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis officiis soluta itaque eaque, rem velit molestias, consectetur explicabo corporis illum laboriosam assumenda, tenetur. Odio hic autem nobis exercitationem debitis. Tempora.</p>
+<p id="one">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis officiis soluta itaque eaque, rem velit molestias, consectetur explicabo corporis illum laboriosam assumenda, tenetur. Odio hic autem nobis exercitationem debitis. Tempora.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis officiis soluta itaque eaque, rem velit molestias, consectetur explicabo corporis illum laboriosam assumenda, tenetur. Odio hic autem nobis exercitationem debitis. Tempora.</p>
+<p class="quote">천리길도 한걸음 부터</p>
+<p class="quote">열심히 공부하자</p>
+<p class="quote">어쩌구.. 저쩌구...</p>	
+</body>
+</html>

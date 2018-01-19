@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step06_dom.html</title>
+</head>
+<body>
+<button id="addBtn">추가하기</button>
+<div>페이지 로딩 시점에 만들어진 div</div>
+<script>
+	
+	document.querySelector("#addBtn")
+	.addEventListener("click", function(){
+		//div 문서객체를 만들어서 참조값을 변수에 담기
+		var div1=document.createElement("div");
+		//변수에 담긴 참조값을 이용해서 text 출력 
+		div1.innerText="javascript 로 만들어진 div1";
+
+		//이미 존재하는 body 요소의 참조값 얻어와서 
+		var body=document.querySelector("body");
+		//body 에 div 추가 
+		body.append(div1);
+	});
+</script>	
+</body>
+</html>

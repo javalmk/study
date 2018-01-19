@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+<meta charset="UTF-8">
+<title>Step05_Class2.html</title>
+<link rel="stylesheet" href="css/bootstrap.css"/>
+<script src="js/angular.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<input type="checkbox" ng-model="isPrimary"/>글자색 <br/>
+	<input type="checkbox" ng-model="isDanger"/>배경색
+	<p ng-class="{'text-primary':isPrimary,'bg-danger':isDanger}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia dolores laborum veritatis porro ducimus quaerat aliquid cupiditate a, pariatur corporis nam reiciendis sunt rerum excepturi consequatur sint saepe, rem consectetur.</p>
+
+	<button ng-class="['btn','btn-primary','btn-lg']">버튼</button>
+</div>	
+</body>
+</html>

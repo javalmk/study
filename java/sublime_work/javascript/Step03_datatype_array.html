@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step03_datatype_array.html</title>
+</head>
+<body>
+<script>
+	/*
+		5. array type 
+		- [] 를 이용해서 만든다.
+		- 순서가 중요한 데이터를 담는다.
+		- 0 부터 시작하는 인덱스가 자동으로 부여된다.
+	*/
+
+	var nums=[10, 20, 30, 40, 50];
+	var names=["김구라","해골","원숭이","주뎅이"];
+
+	//특정 방을 참조해서 데이터 사용해보기
+	console.log(nums[0]);
+	var a = nums[0];
+
+	//특정방의 데이터 수정하기
+	names[0]="이정호";
+
+	//특정방 삭제하기
+	names.splice(2, 1);  //2번방에서 부터 1개 삭제
+
+	//동적으로 데이터 추가하기
+	names.push("덩어리");
+
+	//방의 총 갯수 참조하기
+	var size=names.length;
+	
+</script>	
+</body>
+</html>

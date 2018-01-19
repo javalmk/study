@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step12_Etc2.html</title>
+	<style>
+		#msgList li:hover{
+			color: pointer;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+<input type="text" id="inputMsg"/>
+<button id="sendBtn">전송</button>	
+<ul id="msgList">
+	<li>하나</li>
+	<li>두울</li>
+</ul>	
+<script src="js/jquery-3.2.1.js"></script>	
+<script>
+	$("#sendBtn").on("click", function(){
+		var msg=$("#inputMsg").val();
+		$("<li/>").text(msg).appendTo("#msgList");
+	});
+
+	$(document).on("click", "#msgList li", function(){
+		//클릭한곳의 text 를 읽어와서 
+		var msg=$(this).text();
+		//알림창에 띄우기 
+		alert(msg);
+	});
+</script>
+</body>
+</html>

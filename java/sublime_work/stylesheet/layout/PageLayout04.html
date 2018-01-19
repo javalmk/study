@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PageLayout04.html</title>
+	<style>
+		body{
+			/* 상단 fixed 된 요소에 컨텐츠가 가려 지지 않도록 적당한 padding 을 부여한다. */
+			padding-top: 100px;
+		}
+		#navi{
+			width: 200px;
+			position: absolute;
+			left: 0;
+		}
+		#navi2{
+			width: 200px;
+			position: absolute;
+			right: 0;
+		}
+
+		#content{
+			/*margin-left: 200px;*/
+
+			/*border-left-width: 200px;
+			border-left-style: solid;
+			border-left-color: yellow;*/
+			
+			/* 위의 세줄을 줄여서 */
+			border-left: 200px solid yellow;
+
+			border-right: 200px solid pink;
+		}
+		#navbar{
+			background-color: #000;
+			color: #fff;
+			/* window 기준으로 고정 위치 */
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 100;
+		}
+		.spacer{
+			height: 500px;
+			background-color: #cecece;
+		}
+	</style>
+</head>
+<body>
+<div id="navbar">
+	<ul>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">Game</a></li>
+		<li><a href="#">Contacts</a></li>
+	</ul>
+</div>
+<div id="navi">
+	<ul>
+		<li><a href="#">하나</a></li>
+		<li><a href="#">두울</a></li>
+		<li><a href="#">세엣</a></li>
+		<li><a href="#">네엣</a></li>
+	</ul>
+</div>
+<div id="navi2">
+	<ul>
+		<li><a href="#">One</a></li>
+		<li><a href="#">Two</a></li>
+		<li><a href="#">Three</a></li>
+		<li><a href="#">Four</a></li>
+	</ul>
+</div>	
+<div id="content">
+	<h3>제목1</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aliquam maiores voluptates ab laudantium facere fugit quos asperiores, vel labore voluptatem, quibusdam, dolore libero dignissimos perferendis illum dolor nemo ipsum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aliquam maiores voluptates ab laudantium facere fugit quos asperiores, vel labore voluptatem, quibusdam, dolore libero dignissimos perferendis illum dolor nemo ipsum.</p>
+	<h3>제목2</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aliquam maiores voluptates ab laudantium facere fugit quos asperiores, vel labore voluptatem, quibusdam, dolore libero dignissimos perferendis illum dolor nemo ipsum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aliquam maiores voluptates ab laudantium facere fugit quos asperiores, vel labore voluptatem, quibusdam, dolore libero dignissimos perferendis illum dolor nemo ipsum.</p>
+	<h3>제목3</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aliquam maiores voluptates ab laudantium facere fugit quos asperiores, vel labore voluptatem, quibusdam, dolore libero dignissimos perferendis illum dolor nemo ipsum.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aliquam maiores voluptates ab laudantium facere fugit quos asperiores, vel labore voluptatem, quibusdam, dolore libero dignissimos perferendis illum dolor nemo ipsum.</p>
+</div>
+<div class="spacer">spacer</div>
+<div class="spacer">spacer</div>
+<div class="spacer">spacer</div>
+</body>
+</html>

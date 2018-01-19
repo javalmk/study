@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>boxSize.html</title>
+	<style>
+		/* 크기를 결정할때 width 와 height 에 padding 과 border 가 포함 되도록 하는 설정 */
+		*{	
+			/* 기본값 : content-box */
+			box-sizing: border-box;
+		}
+
+		.box{
+			width: 100px;
+			height: 100px;
+			padding: 10px;
+			border: 10px solid red;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+<div class="box"></div>	
+</body>
+</html>

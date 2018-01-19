@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step01_Hello.html</title>
+</head>
+<body>
+<button id="myBtn">눌러보셈</button>
+<button id="myBtn2">눌러보셈2</button>	
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+<!-- 외부 javascript 로딩하기 -->
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+	//버튼을 눌렀을때 실행할 함수 등록 
+	document.querySelector("#myBtn")
+	.addEventListener("click", function(){
+		//1. 모든 div 의 참조값을 얻어와서
+		var divs=document.querySelectorAll("div");
+		//2. innerText 로 "김구라" 출력하기
+		for(var i=0; i<divs.length; i++){
+			divs[i].innerText="김구라";
+		}
+	});
+
+	$("#myBtn2").on("click", function(){
+		$("div").text("김구라");
+	});
+</script>
+</body>
+</html>
