@@ -131,3 +131,8 @@ STATIC_URL = '/static/'
 
 
 INTERNAL_IPS = ['127.0.0.1']
+
+from django.contrib.messages import constants
+
+MESSAGE_LEVEL = constants.DEBUG #지금부터 DEBUG 레벨의 messages를 남길 수 있음.
+MESSAGE_TAGS={constants.ERROR:'danger'}# 부트스트랩 alert-danger 사용위해 바꿔줌
