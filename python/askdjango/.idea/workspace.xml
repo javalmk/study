@@ -94,6 +94,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/askdjango/settings.py" afterPath="$PROJECT_DIR$/askdjango/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/askdjango/templates/layout.html" afterPath="$PROJECT_DIR$/askdjango/templates/layout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/askdjango/urls.py" afterPath="$PROJECT_DIR$/askdjango/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/models.py" afterPath="$PROJECT_DIR$/blog/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/views.py" afterPath="$PROJECT_DIR$/blog/views.py" />
     </list>
@@ -119,11 +120,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="24" column="40" lean-forward="false" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+            <state relative-caret-position="61">
+              <caret line="30" column="55" lean-forward="true" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/askdjango/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="61">
+              <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -175,6 +186,7 @@
         <option value="$PROJECT_DIR$/askdjango/templates/layout.html" />
         <option value="$PROJECT_DIR$/askdjango/settings.py" />
         <option value="$PROJECT_DIR$/blog/models.py" />
+        <option value="$PROJECT_DIR$/askdjango/urls.py" />
       </list>
     </option>
   </component>
@@ -212,6 +224,11 @@
           <expand>
             <path>
               <item name="askdjango" type="b2602c69:ProjectViewProjectNode" />
+              <item name="askdjango" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="askdjango" type="b2602c69:ProjectViewProjectNode" />
+              <item name="askdjango" type="462c0819:PsiDirectoryNode" />
               <item name="askdjango" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -525,8 +542,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="24" column="40" lean-forward="false" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+        <state relative-caret-position="61">
+          <caret line="30" column="55" lean-forward="true" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/askdjango/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
           <folding />
         </state>
       </provider>
