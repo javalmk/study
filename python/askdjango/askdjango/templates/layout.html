@@ -12,7 +12,8 @@
     <!-- bootstrap: cosmo theme -->
     <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" /> -->
 
-    <link rel="stylesheet" href="{% static "style.css" %}">
+    <!-- <link rel="stylesheet" href="/static/style.css" /> -->
+    <link rel="stylesheet" href="{% static "style.css" %}" />
 </head>
 
 <body>
@@ -42,12 +43,12 @@
 
     {% if messages %}
         <div class="container">
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">
-            [{{ message.tags }}]{% comment %}메세지 level{% endcomment %}
-            {{ message.message }}{% comment %}실제 메세지 내용{% endcomment %}
-            </div>
-        {% endfor %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    [{{ message.tags }}]   {# 메세지 Level #}
+                    {{ message.message }}  {# 실제 메세지 내용 #}
+                </div>
+            {% endfor %}
         </div>
     {% endif %}
 

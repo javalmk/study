@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'debug_toolbar',
     'django_extensions',
+    'imagekit',
     'accounts',
     'blog',
     'dojo',
@@ -129,16 +130,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'askdjango','static'),
+    os.path.join(BASE_DIR, 'askdjango', 'static'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 INTERNAL_IPS = ['127.0.0.1']
 
+
 from django.contrib.messages import constants
 
-MESSAGE_LEVEL = constants.DEBUG #지금부터 DEBUG 레벨의 messages를 남길 수 있음.
-MESSAGE_TAGS={constants.ERROR:'danger'}# 부트스트랩 alert-danger 사용위해 바꿔줌
+MESSAGE_LEVEL = constants.DEBUG  # 지금부터 debug 레벨의 messages 를 남길 수 있음.
+MESSAGE_TAGS = {constants.ERROR: 'danger'}
+
